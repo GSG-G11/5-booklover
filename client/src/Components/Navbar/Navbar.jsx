@@ -5,7 +5,7 @@ import "./Navbar.css";
 const Navbar = (props) => {
   const { isLogin, searchBook, handleChange, isBooksPage, handleLogin, handleLogout} = props;
   return (
-    <div className="nav">
+    <nav className="nav">
       <div className="logo">
         <Link className="link" to="/">
           <img src={"./logo.svg"} alt="logo" />
@@ -14,19 +14,22 @@ const Navbar = (props) => {
       </div>
       <div className="search">
         {isBooksPage && (
-          <input
-            type="search"
-            name="searchBook"
-            value={searchBook}
-            onChange={handleChange}
-            placeholder={"Find Book here..."}
-          />
+          <>
+            <input
+              type="search"
+              name="searchBook"
+              value={searchBook}
+              onChange={handleChange}
+              placeholder={"Find Book here..."}
+            />
+            <span className="ri-search-line icon"></span>
+          </>
         )}
       </div>
       <div className="">
         {isLogin ? (
-          <div>
-            <span className="namee-seller">{localStorage.getItem('nameSeller')}</span>
+          <div className="auth">
+            <span className="namee-seller">Hi {localStorage.getItem('nameSeller')}</span>
             <button className="logout-Btn" onClick={handleLogout}>
               Logout
             </button>
@@ -35,14 +38,14 @@ const Navbar = (props) => {
           <div className="login">
             <button onClick={handleLogin} className="login-Btn">
               Login
-            </button>{" "}
+            </button> {" "}
             <Link className="link" to="/Cart">
               <i className="ri-shopping-cart-2-line"></i>
             </Link>
           </div>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

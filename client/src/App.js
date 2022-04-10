@@ -3,6 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Books from './Pages/Books';
 import Cart from './Pages/Cart';
 import NotFound from './Pages/NotFound';
+import './App.css'
 import 'remixicon/fonts/remixicon.css'
 
 class App extends Component {
