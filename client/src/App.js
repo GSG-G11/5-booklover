@@ -5,8 +5,6 @@ import Cart from './Pages/Cart';
 import NotFound from './Pages/NotFound';
 import 'remixicon/fonts/remixicon.css'
 
-
-
 class App extends Component {
   state= {
     isBooksPage : true

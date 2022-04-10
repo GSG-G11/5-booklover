@@ -1,0 +1,40 @@
+.login-modal  {
+    margin: 4em auto 0 ;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-login { 
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 1em;
+}
+.ri-close-line {
+    text-align: right;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #8D28AD;
+}
+.form-login input  { 
+    margin-bottom: 1em;
+    padding: 0.5em;
+    width: 20em;
+}
+.form-login-Btn {
+    background-color: #8D28AD;
+    width: 10em;
+    margin: 0.5em auto;
+    padding: 1em;
+    border-radius: 0.5em;
+    border: none;
+    color: #fff;
+}
