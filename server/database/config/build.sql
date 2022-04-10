@@ -1,5 +1,5 @@
 BEGIN;
-drop tables if exists Books;
+drop table if exists Books;
 create table Books (
     id serial primary key,
     name varchar(100) not null,
@@ -7,9 +7,9 @@ create table Books (
     price int not null,
     category varchar(100) not null,
     imageUrl text not null
-)
+);
 INSERT INTO
-    books (name, description,price, category, imageUrl, )
+    Books (name, description, price, category, imageUrl)
     values
     (
         'The Diary of a Young Girl',
