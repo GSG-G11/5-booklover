@@ -20,7 +20,35 @@ const Filter = ({ categories, ctgType, minPrice, maxPrice, handleChange }) => {
           </label>
         ))}
       </div>
-      
+      <div className='price filter-ctg'>
+        <h3 className='filter-type'>Price Range</h3>
+        <div className='min-price single-price'>
+          <label htmlFor='MinPrice'>Min Price</label>
+          <input
+            type='range'
+            name='minPrice'
+            id='min'
+            min={0}
+            max={200}
+            step={10}
+            value={minPrice}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div className='max-price single-price'>
+          <label htmlFor='MaxPrice'>Max Price</label>
+          <input
+            type='range'
+            name='maxPrice'
+            id='min'
+            min={0}
+            max={200}
+            step={10}
+            value={maxPrice}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+      </div>
     </form>
   );
 };

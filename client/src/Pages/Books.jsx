@@ -75,6 +75,8 @@ class Books extends Component {
                 categories={categories}
                 ctgType={ctgType}
                 handleChange={this.handleChange}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
               />
             </aside>
             <div className="books-side">
