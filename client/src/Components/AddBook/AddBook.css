@@ -1,0 +1,67 @@
+.add-modal {
+    margin: 4em auto 0 ;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-add {
+    background-color: #fff;
+    border-radius: 1em;
+    padding: 1em;
+
+}
+.add-book-text {
+    margin-bottom: 5px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+.input-add {
+    width: 30vw;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #8D28AD;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+.category-price {
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+}
+.price, .category {
+    width: 14vw;
+}
+.add-form-Btns {
+    display: flex;
+    justify-content: flex-end;
+}
+.add-form-Btn {
+    width: 7em;
+    background-color: #8D28AD;
+    color: #fff;
+    border: 1px solid #8D28AD;
+    padding: 1em 1.5em;
+    border-radius: 5px;
+    margin-right: 0.5em;
+}
+.cancle-form-Btn {
+    width: 7em;
+    color: #8D28AD;
+    background-color: #fff;
+    border: 1px solid #8D28AD;
+    padding: 1em 1.5em;
+    border-radius: 5px;
+}
+.description {
+    height: 70px;
+}

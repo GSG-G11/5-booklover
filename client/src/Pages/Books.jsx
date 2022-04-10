@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Login from "../Components/Login/Login";
-const seller = localStorage.getItem('nameSeller')
+import AddBook from "../Components/AddBook/AddBook";
+const seller = localStorage.getItem("nameSeller");
+const categories = [
+  "All Genres",
+  "Arts & Photography",
+  "Biographies & Memory",
+  "Children’s Book",
+  "Cookbook & Food",
+  "History",
+  "Literature & Fiction",
+  "Romance",
+  "Sicfi & Fantasy",
+  "Teen & Young Adult",
+];
 class Books extends Component {
   state = {
     isLogin: seller ? true : false,
@@ -9,7 +22,13 @@ class Books extends Component {
     displayModal: false,
     nameSeller: "",
     passwordSeller: "",
-
+    displayModalAdd: false,
+    name: "",
+    price: "",
+    description: "",
+    author: "",
+    imageUrl: "",
+    category: "All Genres",
   };
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -22,18 +41,32 @@ class Books extends Component {
     e.preventDefault();
     this.setState({ isLogin: true });
     const { nameSeller } = this.state;
-    localStorage.setItem('nameSeller',nameSeller)
-    this.handleLogin()
-  }
+    localStorage.setItem("nameSeller", nameSeller);
+    this.handleLogin();
+  };
   handleLogout = () => {
     this.setState({ isLogin: false });
-    localStorage.removeItem('nameSeller')
+    localStorage.removeItem("nameSeller");
+  };
+  handleDisplayAddForm = () => {
+    this.setState({ displayModalAdd: !this.state.displayModalAdd });
   }
 
-
   render() {
-    const { isLogin, searchBook, displayModal, nameSeller, passwordSeller } =
-      this.state;
+    const {
+      isLogin,
+      searchBook,
+      displayModal,
+      nameSeller,
+      passwordSeller,
+      displayModalAdd,
+      name,
+      price,
+      author,
+      category,
+      imageUrl,
+      description,
+    } = this.state;
     const { isBooksPage } = this.props;
     return (
       <>
@@ -42,8 +75,8 @@ class Books extends Component {
           isBooksPage={isBooksPage}
           searchBook={searchBook}
           handleChange={this.handleChange}
-          handleLogin = {this.handleLogin}
-          handleLogout = {this.handleLogout}
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout}
         />
         <Login
           displayModal={displayModal}
@@ -52,6 +85,18 @@ class Books extends Component {
           handleChange={this.handleChange}
           handleLogin={this.handleLogin}
           handleLoginSeller={this.handleLoginSeller}
+        />
+        <AddBook
+          categories={categories}
+          displayModalAdd={displayModalAdd}
+          name={name}
+          price={price}
+          author={author}
+          category={category}
+          imageUrl={imageUrl}
+          description={description}
+          handleChange={this.handleChange}
+          handleDisplayAddForm= {this.handleDisplayAddForm}
         />
       </>
     );
