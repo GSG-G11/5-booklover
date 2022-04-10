@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Login from "../Components/Login/Login";
-const seller = localStorage.getItem('nameSeller')
+const seller = localStorage.getItem('nameSeller');
+const categories = [
+  'All Genres',
+  'Arts & Photography',
+  'Biographies & Memory',
+  'Children’s Book',
+  'Cookbook & Food',
+  'History',
+  'Literature & Fiction',
+  'Romance',
+  'Sicfi & Fantasy',
+  'Teen & Young Adult',
+];
 class Books extends Component {
   state = {
     isLogin: seller ? true : false,
