@@ -6,7 +6,7 @@ const { clientError, serverError } = require('./controller');
 
 const app = express();
 
-app.set('port', process.env.PORT || 3330);
+app.set('port', process.env.PORT || 8080);
 app.disable('x-powered-by');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
