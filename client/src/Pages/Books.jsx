@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Login from "../Components/Login/Login";
-const seller = localStorage.getItem('nameSeller')
+import Filter from "../Components/Books/Filter/Filter";
+const seller = localStorage.getItem('nameSeller');
+const categories = [
+  'All Genres',
+  'Arts & Photography',
+  'Biographies & Memory',
+  'Children’s Book',
+  'Cookbook & Food',
+  'History',
+  'Literature & Fiction',
+  'Romance',
+  'Sicfi & Fantasy',
+  'Teen & Young Adult',
+];
 class Books extends Component {
   state = {
     isLogin: seller ? true : false,
@@ -9,7 +22,9 @@ class Books extends Component {
     displayModal: false,
     nameSeller: "",
     passwordSeller: "",
-
+    ctgType: "All Genres",
+    minPrice: '',
+    maxPrice: ''
   };
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -32,7 +47,7 @@ class Books extends Component {
 
 
   render() {
-    const { isLogin, searchBook, displayModal, nameSeller, passwordSeller } =
+    const { isLogin, searchBook, displayModal, nameSeller, passwordSeller, ctgType, minPrice, maxPrice } =
       this.state;
     const { isBooksPage } = this.props;
     return (
@@ -53,6 +68,22 @@ class Books extends Component {
           handleLogin={this.handleLogin}
           handleLoginSeller={this.handleLoginSeller}
         />
+        <div className="container">
+          <div className="row">
+            <aside className="side-bar">
+              <Filter
+                categories={categories}
+                ctgType={ctgType}
+                handleChange={this.handleChange}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+              />
+            </aside>
+            <div className="books-side">
+
+            </div>
+          </div>
+        </div>
       </>
     );
   }
