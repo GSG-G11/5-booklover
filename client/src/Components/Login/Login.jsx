@@ -7,7 +7,7 @@ const Login = (props) => {
     displayModal && (
       <div className="login-modal">
         <form className='form-login'>
-        <i className="ri-close-line" onClick={handleLogin}></i>
+          <button className="btn"><i className="ri-close-line" onClick={handleLogin}></i></button>
           <input
             type="text"
             placeholder="Enter Your Name"

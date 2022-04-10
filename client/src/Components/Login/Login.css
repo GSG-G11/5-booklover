@@ -17,8 +17,10 @@
     background-color: #fff;
     padding: 1em;
     border-radius: 1em;
+    max-width: 350px;
+    width: 100%;
 }
-.ri-close-line {
+.btn {
     text-align: right;
     font-size: 1.5em;
     margin-bottom: 0.5em;
@@ -26,8 +28,11 @@
 }
 .form-login input  { 
     margin-bottom: 1em;
-    padding: 0.5em;
-    width: 20em;
+    padding: .5rem .7rem;
+    width: 100%;
+    border: 2px solid #8D28AD;
+    height: 45px;
+    border-radius: 5px;
 }
 .form-login-Btn {
     background-color: #8D28AD;
