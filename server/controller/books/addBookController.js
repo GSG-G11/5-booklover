@@ -7,11 +7,12 @@ const addBookController = (req, res, next) => {
     description,
     price,
     category,
+    author,
     imageUrl,
   } = req.body;
   addBookSchema.validateAsync(req.body, { abortEarly: false })
     .then(() => addBookQuery({
-      name, description, price, category, imageUrl,
+      name, description, price, category, author, imageUrl,
     }))
     .then((data) => {
       if (data.rowCount) {

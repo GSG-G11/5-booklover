@@ -4,6 +4,7 @@ const clientError = (req, res) => {
 
 // eslint-disable-next-line no-unused-vars
 const serverError = (err, req, res, next) => {
+  console.log(err)
   if (err.status) {
     res.status(err.status).json({ status: err.status, message: err.message });
   } else {
