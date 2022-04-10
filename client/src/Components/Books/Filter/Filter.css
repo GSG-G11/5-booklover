@@ -1,0 +1,33 @@
+.form-title{
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.filter-type{
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.filter-ctg{
+    margin-bottom: 1.5em;
+}
+.single-category{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    margin-left: .7rem;
+}
+.single-category input{
+    margin-right: .3rem;
+}
+
+.price .single-price{
+    margin-left: .7rem;
+}
+.price label{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: .3rem;
+}
