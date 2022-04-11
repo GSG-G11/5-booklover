@@ -111,6 +111,7 @@ class Books extends Component {
           handleChange={this.handleChange}
           minPrice={minPrice}
           maxPrice={maxPrice}
+          isLogin={isLogin}
         />
       </>
     );
