@@ -21,7 +21,6 @@ class ShowBooks extends Component {
   render() {
     const { isLogin, handleDisplayAddForm } = this.props;
     const {books}=this.state
-    console.log(books,'knkl')
     return (
       <section className="books-side">
         <div className="books-header">
