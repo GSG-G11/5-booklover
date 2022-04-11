@@ -2,13 +2,13 @@ import React from 'react'
 import BookCard from './BookCard/BookCard';
 import './ShowBooks.css';
 
-const ShowBooks = ({ isLogin }) => {
+const ShowBooks = ({ isLogin, handleDisplayAddForm }) => {
   return (
     <section className='books-side'>
       <div className='books-header'>
         <h2 className='sec-title'>Books</h2>
         {isLogin ? (
-          <button className='btn filter-btn'>
+          <button className='btn filter-btn' onClick={() => handleDisplayAddForm()}>
             <i class="ri-add-line"></i>
             Add Book
           </button>

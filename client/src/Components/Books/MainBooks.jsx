@@ -3,7 +3,7 @@ import Filter from './Filter/Filter'
 import './MainBooks.css'
 import ShowBooks from './ShowBooks/ShowBooks'
 
-const MainBooks = ({categories, ctgType, handleChange, minPrice, maxPrice, isLogin}) => {
+const MainBooks = ({categories, ctgType, handleChange, minPrice, maxPrice, isLogin, handleDisplayAddForm}) => {
   return (
     <div className="container">
           <div className="row">
@@ -16,7 +16,7 @@ const MainBooks = ({categories, ctgType, handleChange, minPrice, maxPrice, isLog
                 maxPrice={maxPrice}
               />
             </aside>
-            <ShowBooks isLogin={isLogin} />
+            <ShowBooks isLogin={isLogin} handleDisplayAddForm={handleDisplayAddForm} />
           </div>
         </div>
   )
