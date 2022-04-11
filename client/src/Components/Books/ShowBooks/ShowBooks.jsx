@@ -14,7 +14,8 @@ const ShowBooks = ({
 }) => {
   let result = books.filter(
     (book) =>
-      (ctgType === 'All Genres' || book.category === ctgType) 
+      (ctgType === 'All Genres' || book.category === ctgType) &&
+      (minPrice === '' || book.price >= minPrice)
   );
   return (
     <section className='books-side'>
