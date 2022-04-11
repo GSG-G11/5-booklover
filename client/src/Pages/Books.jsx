@@ -110,7 +110,21 @@ class Books extends Component {
       .catch((err) => console.log(err));
   };
 
-  
+  deleteBook(e) {
+    const id = e.target.dataset.id;
+    fetch(`/api/v1/book/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id
+      })
+    })
+    .then(data => data.json())
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  };
 
   render() {
     const {
