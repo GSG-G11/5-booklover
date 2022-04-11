@@ -112,6 +112,7 @@ class Books extends Component {
           minPrice={minPrice}
           maxPrice={maxPrice}
           isLogin={isLogin}
+          handleDisplayAddForm={this.handleDisplayAddForm}
         />
       </>
     );
