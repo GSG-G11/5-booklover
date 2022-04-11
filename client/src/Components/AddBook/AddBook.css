@@ -38,7 +38,7 @@ label {
     justify-content: space-between;
     width: 30vw;
 }
-.price, .category {
+.price-input, .category {
     width: 14vw;
 }
 .add-form-Btns {

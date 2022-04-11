@@ -55,12 +55,13 @@ const AddBook = (props) => {
             <div>
               <label>Category</label>
               <select
-              name="category"
+                name="category"
                 value={category}
                 onChange={handleChange}
                 className="category input-add"
-              >
-                {categories.map((category) => {
+              > 
+              {/* <option value={category} disabled>Select Category</option> */}
+                {categories.slice(1).map((category) => {
                   return (
                     <option value={category} key={category}>
                       {category}
@@ -72,7 +73,7 @@ const AddBook = (props) => {
             <div>
               <label>Price</label>
               <input
-                className="input-add price"
+                className="input-add price-input"
                 type="number"
                 placeholder="100"
                 name="price"

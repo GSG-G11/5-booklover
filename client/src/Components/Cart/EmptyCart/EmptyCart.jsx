@@ -5,10 +5,12 @@ import './EmptyCart.css'
 
 const EmptyCart = () => {
   return (
-    <div className='empty-cart'>
-      <img src={empty} alt="emptyCart" className='empty-pic' />
+    <div className='container'>
+     <div className="empty-cart">
+     <img src={empty} alt="emptyCart" className='empty-pic' />
       <p>Empty Cart click next Button to Browser Books adn add to cart</p>
       <Link to='/' className='browser-books'>Browser Books</Link>
+     </div>
     </div>
   )
 }
