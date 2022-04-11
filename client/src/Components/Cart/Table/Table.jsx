@@ -1,9 +1,15 @@
 import React from 'react'
 import './Table.css'
+import TableHeader from './TableHeader'
+import TableItem from './TableItem'
 
-const Table = () => {
+const Table = (props) => {
+  const {fakeDate} = props
   return (
-    <div>Table</div>
+    <div>
+      <TableHeader/>
+      {fakeDate.map((item)=>{return <TableItem item={item} key={item.id}/>})}
+    </div>
   )
 }
 
