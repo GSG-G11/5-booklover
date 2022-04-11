@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Login from "../Components/Login/Login";
 import AddBook from "../Components/AddBook/AddBook";
-import Filter from "../Components/Books/Filter/Filter";
+import MainBooks from '../Components/Books/MainBooks';
 const seller = localStorage.getItem('nameSeller');
 const categories = [
   'All Genres',
@@ -19,20 +19,20 @@ const categories = [
 class Books extends Component {
   state = {
     isLogin: seller ? true : false,
-    searchBook: "",
+    searchBook: '',
     displayModal: false,
-    nameSeller: "",
-    passwordSeller: "",
+    nameSeller: '',
+    passwordSeller: '',
     displayModalAdd: false,
-    name: "",
-    price: "",
-    description: "",
-    author: "",
-    imageUrl: "",
-    category: "All Genres",
-    ctgType: "All Genres",
+    name: '',
+    price: '',
+    description: '',
+    author: '',
+    imageUrl: '',
+    category: 'All Genres',
+    ctgType: 'All Genres',
     minPrice: '',
-    maxPrice: ''
+    maxPrice: '',
   };
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -45,16 +45,16 @@ class Books extends Component {
     e.preventDefault();
     this.setState({ isLogin: true });
     const { nameSeller } = this.state;
-    localStorage.setItem("nameSeller", nameSeller);
+    localStorage.setItem('nameSeller', nameSeller);
     this.handleLogin();
   };
   handleLogout = () => {
     this.setState({ isLogin: false });
-    localStorage.removeItem("nameSeller");
+    localStorage.removeItem('nameSeller');
   };
   handleDisplayAddForm = () => {
     this.setState({ displayModalAdd: !this.state.displayModalAdd });
-  }
+  };
 
   render() {
     const {
@@ -72,7 +72,7 @@ class Books extends Component {
       description,
       ctgType,
       minPrice,
-      maxPrice
+      maxPrice,
     } = this.state;
     const { isBooksPage } = this.props;
     return (
@@ -103,24 +103,15 @@ class Books extends Component {
           imageUrl={imageUrl}
           description={description}
           handleChange={this.handleChange}
-          handleDisplayAddForm= {this.handleDisplayAddForm}
+          handleDisplayAddForm={this.handleDisplayAddForm}
         />
-        <div className="container">
-          <div className="row">
-            <aside className="side-bar">
-              <Filter
-                categories={categories}
-                ctgType={ctgType}
-                handleChange={this.handleChange}
-                minPrice={minPrice}
-                maxPrice={maxPrice}
-              />
-            </aside>
-            <div className="books-side">
-
-            </div>
-          </div>
-        </div>
+        <MainBooks
+          categories={categories}
+          ctgType={ctgType}
+          handleChange={this.handleChange}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+        />
       </>
     );
   }

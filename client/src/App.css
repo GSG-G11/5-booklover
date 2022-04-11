@@ -19,23 +19,9 @@ input{
     border: none;
     outline: none;
 }
-
 .container{
     width: 100%;
     padding: 0 15px;
     max-width: 1300px;
     margin: 0 auto;
 }
-
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 2rem;
-}
-
-.row .side-bar{
-    width: 20%;
-    margin-right: 2rem;
-}
-

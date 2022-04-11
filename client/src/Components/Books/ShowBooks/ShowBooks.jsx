@@ -1,9 +1,12 @@
 import React from 'react'
+import BookCard from './BookCard/BookCard'
 import './ShowBooks.css'
 
 const ShowBooks = () => {
   return (
-    <div>ShowBooks</div>
+    <div className="books-grid">
+      <BookCard />
+    </div>
   )
 }
 
