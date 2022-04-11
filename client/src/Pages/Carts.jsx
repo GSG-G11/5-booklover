@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../Components/Navbar/Navbar';
+import EmptyCart from '../Components/Cart/EmptyCart/EmptyCart'
 import Cart from '../Components/Cart/Cart'
 
 const Carts = (props) => {
@@ -8,7 +9,7 @@ const Carts = (props) => {
   return (
     <div>
       <Navbar isBooksPage={isBooksPage} />
-      <Cart fakeDate={fakeDate}/>  
+      { fakeDate.length? <Cart fakeDate={fakeDate}/> :<EmptyCart/> }
     </div>
   )
 }

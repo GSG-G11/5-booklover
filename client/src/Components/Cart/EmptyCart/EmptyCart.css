@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80vw;
+    margin: 1em auto;
 }
 .empty-pic {
     width: 40%;
