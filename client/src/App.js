@@ -17,7 +17,7 @@ class App extends Component {
         <Switch>
           <Route path="/cart" render={(props)=> <Carts isBooksPage={!isBooksPage}/>} />
           <Route path="/notfound" component={NotFound} />
-          <Route path="/"  render={(props)=> <Books isBooksPage={isBooksPage}/>} />
+          <Route path="/"  render={(props)=> <Books isBooksPage={isBooksPage}/>}  exact/>
           <Redirect to="/notfound" />
         </Switch>
     </BrowserRouter>
