@@ -38,4 +38,26 @@ input{
     width: 20%;
     margin-right: 2rem;
 }
+.notFound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 80vw;
+    margin: 1em auto;
+}
+.imgNotFound {
+    width: 70%;
+    margin-bottom: 1em;
+}
+.backToHome {
+    color: #fff;
+    background-color: #8D28AD;
+    border: 1px solid #8D28AD;
+    padding: 0.7em 1.5em;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 0.5em;
+}
+
 

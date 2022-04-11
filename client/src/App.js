@@ -18,8 +18,11 @@ class App extends Component {
         <Switch>
           <Route path="/cart" render={(props)=> <Carts isBooksPage={!isBooksPage}/>} />
           <Route path="/notfound" component={NotFound} />
+
+          <Route path="/"  render={(props)=> <Books isBooksPage={isBooksPage}/>}  exact/>
+
           <Route path="/book/:id" component={SingleBook} />
-          <Route path="/"  render={(props)=> <Books isBooksPage={isBooksPage}/>} />
+
           <Redirect to="/notfound" />
         </Switch>
     </BrowserRouter>
