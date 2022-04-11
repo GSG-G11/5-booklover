@@ -1,3 +1,4 @@
+import EmptyBooks from "../EmptyBooks/EmptyBooks";
 import BookCard from "./BookCard/BookCard";
 import "./ShowBooks.css";
 // { isLogin }
@@ -15,23 +16,27 @@ const ShowBooks = ({ isLogin, handleDisplayAddForm, books, deleteBook }) => {
           </button>
         ) : null}
       </div>
-      <div className='books-grid'>
-        {books.map(({ id, name, price, category, author, imageurl }) => {
-          return (
-            <BookCard
-              id={id}
-              name={name}
-              price={price}
-              category={category}
-              author={author}
-              imageUrl={imageurl}
-              isLogin={isLogin}
-              key={id}
-              deleteBook={deleteBook}
-            />
-          );
-        })}
-      </div>
+      {books.length > 0 ? (
+        <div className='books-grid'>
+          {books.map(({ id, name, price, category, author, imageurl }) => {
+            return (
+              <BookCard
+                id={id}
+                name={name}
+                price={price}
+                category={category}
+                author={author}
+                imageUrl={imageurl}
+                isLogin={isLogin}
+                key={id}
+                deleteBook={deleteBook}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <EmptyBooks />
+      )}
     </section>
   );
 };
