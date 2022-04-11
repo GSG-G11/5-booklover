@@ -35,19 +35,17 @@
   flex-direction: column;
 }
 
-.title {
+.content .title {
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
 }
 
-.author {
+.content .author {
   margin-bottom: 1rem;
   font-size: 15px;
   color: #00000080;
 }
-.text {
-}
-.price {
+.content .price {
   color: #8d28ad;
   font-size: 1.5rem;
   font-weight: 600;
