@@ -19,7 +19,6 @@ input{
     border: none;
     outline: none;
 }
-
 .container{
     width: 100%;
     padding: 0 15px;
@@ -27,17 +26,6 @@ input{
     margin: 0 auto;
 }
 
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 2rem;
-}
-
-.row .side-bar{
-    width: 20%;
-    margin-right: 2rem;
-}
 .notFound{
     display: flex;
     flex-direction: column;

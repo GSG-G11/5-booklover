@@ -1,0 +1,37 @@
+.books-side{
+    width: calc(80% - 1rem);
+}
+
+.books-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.books-header .btn{
+    text-decoration: none;
+    color: #FFF;
+    border-radius: .3rem;
+    background: #8D28AD;
+    padding: .6rem 1rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    transition: all .5s;
+}
+
+.books-header .btn:hover{
+    background-color: #b031d7;
+}
+
+.books-header .btn i{
+    margin-right: .5rem;
+}
+
+.books-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 2rem;
+}

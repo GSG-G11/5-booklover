@@ -20,7 +20,7 @@
     max-width: 350px;
     width: 100%;
 }
-.btn {
+.form-login .btn {
     text-align: right;
     font-size: 1.5em;
     margin-bottom: 0.5em;
