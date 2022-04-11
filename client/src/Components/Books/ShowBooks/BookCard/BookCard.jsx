@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import './BookCard.css'
 
-const BookCard = ({ id, name, price, category, author, imageUrl }) => {
+const BookCard = ({ id, name, price, category, author, imageUrl, isLogin }) => {
   return (
     <div className='single-book' title={name}>
       <div className='book-img'>
@@ -11,9 +11,20 @@ const BookCard = ({ id, name, price, category, author, imageUrl }) => {
           <Link className='btn search-link' to={`/book/${id}`}>
             <i className='ri-search-line'></i>
           </Link>
-          <button className='btn cart-btn'>
-            <i className='ri-shopping-cart-2-line'></i>
-          </button>
+          {isLogin ? (
+            <>
+              <button className='btn edit-btn'>
+                <i className='ri-pencil-line'></i>
+              </button>
+              <button className='btn delete-btn'>
+                <i className='ri-delete-bin-line'></i>
+              </button>
+            </>
+          ) : (
+            <button className='btn cart-btn'>
+              <i className='ri-shopping-cart-2-line'></i>
+            </button>
+          )}
         </div>
       </div>
       <div className='book-info'>
