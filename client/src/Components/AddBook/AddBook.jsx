@@ -2,7 +2,7 @@ import React from "react";
 import "./AddBook.css";
 
 const AddBook = (props) => {
-  const {
+  let {
     categories,
     displayModalAdd,
     name,
@@ -13,19 +13,21 @@ const AddBook = (props) => {
     description,
     handleChange,
     handleDisplayAddForm,
+    addBook
   } = props;
+
   return (
     displayModalAdd && (
-      <div className="add-modal">
-        <form className="form-add">
-          <h2 className="add-book-text">Add Book</h2>
+      <div className='add-modal'>
+        <form className='form-add'>
+          <h2 className='add-book-text'>Add Book</h2>
           <div>
             <label>Name</label>
             <input
-              className="input-add"
-              type="text"
-              placeholder="Book Name"
-              name="name"
+              className='input-add'
+              type='text'
+              placeholder='Book Name'
+              name='name'
               value={name}
               onChange={handleChange}
             />
@@ -33,34 +35,31 @@ const AddBook = (props) => {
           <div>
             <label>Description</label>
             <textarea
-              name="description"
+              name='description'
               value={description}
               onChange={handleChange}
-              className="input-add description"
-              placeholder="Book Description"
-            ></textarea>
+              className='input-add description'
+              placeholder='Book Description'></textarea>
           </div>
           <div>
             <label>Author</label>
             <input
-              className="input-add "
-              type="text"
-              placeholder="Karam Zomlot"
-              name="author"
+              className='input-add '
+              type='text'
+              placeholder='Karam Zomlot'
+              name='author'
               value={author}
               onChange={handleChange}
             />
           </div>
-          <div className="category-price">
+          <div className='category-price'>
             <div>
               <label>Category</label>
               <select
-                name="category"
+                name='category'
                 value={category}
                 onChange={handleChange}
-                className="category input-add"
-              > 
-              {/* <option value={category} disabled>Select Category</option> */}
+                className='category input-add'>
                 {categories.slice(1).map((category) => {
                   return (
                     <option value={category} key={category}>
@@ -73,10 +72,10 @@ const AddBook = (props) => {
             <div>
               <label>Price</label>
               <input
-                className="input-add price-input"
-                type="number"
-                placeholder="100"
-                name="price"
+                className='input-add price-input'
+                type='number'
+                placeholder='100'
+                name='price'
                 value={price}
                 onChange={handleChange}
               />
@@ -85,24 +84,26 @@ const AddBook = (props) => {
           <div>
             <label>Image Url</label>
             <input
-              className="input-add"
-              type="text"
-              placeholder="http://"
-              name="imageUrl"
+              className='input-add'
+              type='text'
+              placeholder='http://'
+              name='imageUrl'
               value={imageUrl}
               onChange={handleChange}
             />
           </div>
 
-          <div className="add-form-Btns">
-            <button type="click" className="add-form-Btn">
+          <div className='add-form-Btns'>
+            <button
+              type='click'
+              className='add-form-Btn'
+              onClick={(e) => addBook(e)}>
               Add
             </button>
             <button
-              type="click"
-              className="cancle-form-Btn"
-              onClick={handleDisplayAddForm}
-            >
+              type='click'
+              className='cancle-form-Btn'
+              onClick={handleDisplayAddForm}>
               Cancle
             </button>
           </div>

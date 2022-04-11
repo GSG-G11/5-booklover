@@ -25,6 +25,9 @@ input{
     max-width: 1300px;
     margin: 0 auto;
 }
+i{
+    pointer-events: none;
+}
 
 .notFound{
     display: flex;
