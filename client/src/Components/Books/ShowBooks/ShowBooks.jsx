@@ -1,41 +1,59 @@
-import React, { Component } from 'react'
-import BookCard from './BookCard/BookCard';
-import './ShowBooks.css';
+import React, { Component } from "react";
+import BookCard from "./BookCard/BookCard";
+import "./ShowBooks.css";
 // { isLogin }
 class ShowBooks extends Component {
- 
-  render(){
-const {isLogin} = this.props
+  state = {
+    books: [],
+    err: "",
+  };
+  componentDidMount() {
+    fetch("/api/v1/books/show")
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        }
+      })
+      .then((data) => this.setState({ books: data.data }))
+      .catch((err) => this.setState({ err: err }));
+  }
+
+  render() {
+    const { isLogin, handleDisplayAddForm } = this.props;
+    const {books}=this.state
+    console.log(books,'knkl')
     return (
-      <section className='books-side'>
-        <div className='books-header'>
-          <h2 className='sec-title'>Books</h2>
+      <section className="books-side">
+        <div className="books-header">
+          <h2 className="sec-title">Books</h2>
           {isLogin ? (
-            <button className='btn filter-btn'>
+            <button
+              className="btn filter-btn"
+              onClick={() => handleDisplayAddForm()}
+            >
               <i class="ri-add-line"></i>
               Add Book
             </button>
           ) : null}
         </div>
-        <div className='books-grid'>
-          <BookCard
-            id={1}
-            name={'The Diary of a Young Girl'}
-            price={14.5}
-            category={'History'}
-            author={'Anne Frank'}
-            imageUrl={
-              'https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B550%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&product=path%5B/pimages/9789352782772_p0_v1%5D&call=url%5Bfile:common/decodeProduct.chain%5D'
-            }
-            isLogin={isLogin}
-          />
-          
+        <div className="books-grid">
+          {books.map(({id,name,price,category,author,imageurl})=>{
+   return <BookCard
+   id={id}
+   name={name}
+   price={price}
+   category={category}
+   author={author}
+   imageUrl={
+    imageurl
+   }
+   isLogin={isLogin} key={id}
+ />
+          })}
         </div>
       </section>
-    );
-
+    )
   }
+}
 
-};
-
-export default ShowBooks
+export default ShowBooks;
