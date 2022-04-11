@@ -1,6 +1,7 @@
 import React from 'react'
 import Filter from './Filter/Filter'
 import './MainBooks.css'
+import ShowBooks from './ShowBooks/ShowBooks'
 
 const MainBooks = ({categories, ctgType, handleChange, minPrice, maxPrice}) => {
   return (
@@ -15,9 +16,7 @@ const MainBooks = ({categories, ctgType, handleChange, minPrice, maxPrice}) => {
                 maxPrice={maxPrice}
               />
             </aside>
-            <div className="books-side">
-
-            </div>
+            <ShowBooks />
           </div>
         </div>
   )
