@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../Components/Navbar/Navbar';
 import BookDetails from '../Components/BookDetails/BookDetails'
-const SingleBook = () => {
+const SingleBook = (props) => {
+const {id} =props.match.params
   return (
     <div>
       <Navbar/>
-      <BookDetails />
-      {/* <h1>Hello from single page</h1> */}
+      <BookDetails id={id} />
     </div>
   )
 }
