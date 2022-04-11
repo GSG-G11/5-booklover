@@ -1,0 +1,19 @@
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.empty-pic {
+    width: 40%;
+    margin-bottom: 1.5em;
+}
+.browser-books {
+    color: #fff;
+    background-color: #8D28AD;
+    border: 1px solid #8D28AD;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1em;
+}

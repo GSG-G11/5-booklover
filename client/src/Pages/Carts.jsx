@@ -1,14 +1,16 @@
 import React from 'react'
 import Navbar from '../Components/Navbar/Navbar';
+import Cart from '../Components/Cart/Cart'
 
-const Cart = (props) => {
+const Carts = (props) => {
   const {isBooksPage} = props
+  const fakeDate =[]
   return (
     <div>
       <Navbar isBooksPage={isBooksPage} />
-      <h1>Hello from cart</h1>
+      <Cart fakeDate={fakeDate}/>  
     </div>
   )
 }
 
-export default Cart
+export default Carts
