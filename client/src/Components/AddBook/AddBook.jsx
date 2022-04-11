@@ -55,6 +55,7 @@ const AddBook = (props) => {
             <div>
               <label>Category</label>
               <select
+              name="category"
                 value={category}
                 onChange={handleChange}
                 className="category input-add"
