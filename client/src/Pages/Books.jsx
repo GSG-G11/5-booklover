@@ -29,7 +29,7 @@ class Books extends Component {
     description: "",
     author: "",
     imageUrl: "",
-    category: "All Genres",
+    category: "select category",
     ctgType: "All Genres",
     minPrice: '',
     maxPrice: ''
