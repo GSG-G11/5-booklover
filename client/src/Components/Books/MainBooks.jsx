@@ -5,8 +5,9 @@ import ShowBooks from './ShowBooks/ShowBooks'
 
 const MainBooks = ({
   categories,
-  ctgType,
   handleChange,
+  searchBook,
+  ctgType,
   minPrice,
   maxPrice,
   isLogin,
@@ -31,6 +32,10 @@ const MainBooks = ({
           handleDisplayAddForm={handleDisplayAddForm}
           books={books}
           deleteBook={deleteBook}
+          searchBook={searchBook}
+          ctgType={ctgType}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
         />
       </div>
     </div>
