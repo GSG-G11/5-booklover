@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from './logo.svg'
 
 const Navbar = (props) => {
   const { isLogin, searchBook, handleChange, isBooksPage, handleLogin, handleLogout} = props;
@@ -8,7 +9,7 @@ const Navbar = (props) => {
     <nav className="nav">
       <div className="logo">
         <Link className="link" to="/">
-          <img src={"./logo.svg"} alt="logo" />
+          <img src={logo} alt="logo" />
           <span>Clevr</span>
         </Link>
       </div>

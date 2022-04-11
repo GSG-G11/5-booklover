@@ -5,6 +5,7 @@ import Carts from './Pages/Carts';
 import NotFound from './Pages/NotFound';
 import './App.css'
 import 'remixicon/fonts/remixicon.css'
+import SingleBook from './Pages/SingleBook';
 
 class App extends Component {
   state= {
@@ -17,6 +18,7 @@ class App extends Component {
         <Switch>
           <Route path="/cart" render={(props)=> <Carts isBooksPage={!isBooksPage}/>} />
           <Route path="/notfound" component={NotFound} />
+          <Route path="/book/:id" component={SingleBook} />
           <Route path="/"  render={(props)=> <Books isBooksPage={isBooksPage}/>} />
           <Redirect to="/notfound" />
         </Switch>
