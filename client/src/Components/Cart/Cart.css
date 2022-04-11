@@ -1,4 +1,16 @@
-.wrap-cart {
-    width: 80vw;
-    margin: 1em auto;
+.wrap {
+    width: 200px;
+    display: flex;
+     /*justify-content: center; */
+    margin: 3em auto 0;
+}
+.continue-shop {
+ width: 100%;
+ text-decoration: none;
+ color: #fff;
+ background-color: #8D28AD;
+ border-radius: 5px;
+ padding: 1em;
+ text-align: center;
+
 }

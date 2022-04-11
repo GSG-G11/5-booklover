@@ -1,0 +1,70 @@
+.summary {
+    border-radius: 5px;
+    background-color: #F0E4F4;
+    padding: 3em 8em;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+    background: #F0E4F4 url('./background.png') no-repeat ;
+}
+.shopping-summary, .buy {
+    width: 50%;
+}
+.shopping-summary h3 {
+    margin-bottom: 1em;
+}
+.shopping-summary p {
+    font-size: 0.8em;
+    display: inline-block;
+    width: 350px;
+    color: rgba(0, 0,0, 0.5);
+   
+    margin-bottom: 1.5em;
+}
+.shopping-summary span {
+    display: block;
+    font-size: 0.8em;
+    margin-bottom: 1.5em;
+}
+.param-code input {
+ width: 280px;
+ border-radius: 5px;
+ background-color: #D4C0DB;
+ padding: 0.7em;
+ margin-right: 0.5em;
+ height: 40px;
+}
+.param-code button {
+    background-color: #8D28AD;
+    color: #fff;
+    padding: 0.7em 0.8em;
+    border-radius: 5px;
+    height: 40px;
+}
+.buy .subtotal,
+.buy .tax,
+.buy .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.buy .total {
+    margin-top: 0.5em;
+    margin-bottom: 2.5em;
+}
+.checkout-btn {
+    display: block;
+    background-color: #8D28AD;
+    color: #fff;
+    border-radius: 5px;
+    /* padding: 0.5em 15.5em; */
+    height: 40px;
+    width: 100%;
+}
+.confirm {
+    color: #8D28AD;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    cursor: pointer;
+}
