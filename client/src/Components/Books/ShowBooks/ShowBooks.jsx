@@ -16,7 +16,8 @@ const ShowBooks = ({
     (book) =>
       (ctgType === 'All Genres' || book.category === ctgType) &&
       (minPrice === '' || book.price >= minPrice) &&
-      (maxPrice === '' || book.price <= maxPrice)
+      (maxPrice === '' || book.price <= maxPrice) &&
+      (searchBook === '' || book.name.toLowerCase().includes(searchBook.toLowerCase()))
   );
   return (
     <section className='books-side'>
