@@ -2,12 +2,31 @@ import EmptyBooks from "../EmptyBooks/EmptyBooks";
 import BookCard from "./BookCard/BookCard";
 import "./ShowBooks.css";
 import Pagination from "../../Pagination/Pagination";
-// { isLogin }
-const ShowBooks = ({ isLogin, handleDisplayAddForm, books, deleteBook,  currentPage, postsPerPage, paginate }) => {
-     // Get current posts
-     const indexOfLastPost = currentPage * postsPerPage;
-     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-     const currentbooks = books.slice(indexOfFirstPost, indexOfLastPost);
+
+const ShowBooks = ({
+  isLogin,
+  handleDisplayAddForm,
+  books,
+  deleteBook,
+  searchBook,
+  ctgType,
+  minPrice,
+  maxPrice,
+  currentPage,
+  postsPerPage,
+  paginate
+}) => {
+  let result = books.filter(
+    (book) =>
+      (ctgType === 'All Genres' || book.category === ctgType) &&
+      (minPrice === '' || book.price >= minPrice) &&
+      (maxPrice === '' || book.price <= maxPrice) &&
+      (searchBook === '' || book.name.toLowerCase().includes(searchBook.toLowerCase()))
+  );
+       // Get current posts
+       const indexOfLastPost = currentPage * postsPerPage;
+       const indexOfFirstPost = indexOfLastPost - postsPerPage;
+       const currentbooks = result.slice(indexOfFirstPost, indexOfLastPost);
   return (
     <section className='books-side'>
       <div className='books-header'>

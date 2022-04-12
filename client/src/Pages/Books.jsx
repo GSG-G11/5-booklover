@@ -19,7 +19,6 @@ const categories = [
 class Books extends Component {
   state = {
     isLogin: seller ? true : false,
-    searchBook: '',
     displayModal: false,
     nameSeller: '',
     passwordSeller: '',
@@ -30,12 +29,13 @@ class Books extends Component {
     author: '',
     imageUrl: '',
     category: 'Arts & Photography',
+    searchBook: '',
     ctgType: 'All Genres',
     minPrice: '',
     maxPrice: '',
     books: [],
     currentPage :1,
-    postsPerPage:6
+    postsPerPage:9
   };
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -133,7 +133,6 @@ class Books extends Component {
   render() {
     const {
       isLogin,
-      searchBook,
       displayModal,
       nameSeller,
       passwordSeller,
@@ -144,6 +143,7 @@ class Books extends Component {
       category,
       imageUrl,
       description,
+      searchBook,
       ctgType,
       minPrice,
       maxPrice,
@@ -185,10 +185,11 @@ class Books extends Component {
         />
         <MainBooks
           categories={categories}
+          searchBook={searchBook}
           ctgType={ctgType}
-          handleChange={this.handleChange}
           minPrice={minPrice}
           maxPrice={maxPrice}
+          handleChange={this.handleChange}
           isLogin={isLogin}
           handleDisplayAddForm={this.handleDisplayAddForm}
           books={books}

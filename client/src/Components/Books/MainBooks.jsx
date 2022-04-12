@@ -6,8 +6,9 @@ import ShowBooks from './ShowBooks/ShowBooks'
 
 const MainBooks = ({
   categories,
-  ctgType,
   handleChange,
+  searchBook,
+  ctgType,
   minPrice,
   maxPrice,
   isLogin,
@@ -41,6 +42,10 @@ const MainBooks = ({
           currentPage = {currentPage}
           postsPerPage= {postsPerPage}
           paginate= {  paginate}
+          searchBook={searchBook}
+          ctgType={ctgType}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
         />
            
       </div>
