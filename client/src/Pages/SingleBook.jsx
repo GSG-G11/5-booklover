@@ -4,10 +4,11 @@ import BookDetails from '../Components/BookDetails/BookDetails'
 import Subscribe from "../Components/Subscribe/Subscribe"
 const SingleBook = (props) => {
 const {id} =props.match.params
+const {addToCart} = props;
   return (
     <div>
       <Navbar/>
-      <BookDetails id={id} />
+      <BookDetails id={id} addToCart={addToCart} />
       <Subscribe/>
     </div>
   )

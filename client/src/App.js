@@ -75,7 +75,7 @@ class App extends Component {
             )}
           />
           <Route path="/notfound" component={NotFound} />
-          <Route path="/book/:id" component={SingleBook} />
+          <Route path="/book/:id" render={(props) => (<SingleBook addToCart={this.addToCart} {...props} />)} />
           <Route
             path="/"
             render={(props) => (

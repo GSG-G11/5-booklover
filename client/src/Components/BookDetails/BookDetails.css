@@ -62,12 +62,18 @@
   color: #fff;
   background-color: #8d28ad;
   border: 1px solid #8d28ad;
-  padding: 0.5em 1.5em;
+  padding: 0.7rem 1.5em;
   text-decoration: none;
   border-radius: 5px;
   margin-top: 1em;
   min-width: 110px;
   text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.Buy i{
+  margin-right: 0.5em;
 }
 .browser {
   color: #8d28ad;
