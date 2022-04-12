@@ -1,58 +1,60 @@
-import React, { Component } from "react";
+import EmptyBooks from "../EmptyBooks/EmptyBooks";
 import BookCard from "./BookCard/BookCard";
 import "./ShowBooks.css";
 // { isLogin }
-class ShowBooks extends Component {
-  state = {
-    books: [],
-    err: "",
-  };
-  componentDidMount() {
-    fetch("/api/v1/books/show")
-      .then((res) => {
-        if (res.status === 200) {
-          return res.json();
-        }
-      })
-      .then((data) => this.setState({ books: data.data }))
-      .catch((err) => this.setState({ err: err }));
-  }
-
-  render() {
-    const { isLogin, handleDisplayAddForm } = this.props;
-    const {books}=this.state
-    return (
-      <section className="books-side">
-        <div className="books-header">
-          <h2 className="sec-title">Books</h2>
-          {isLogin ? (
-            <button
-              className="btn filter-btn"
-              onClick={() => handleDisplayAddForm()}
-            >
-              <i class="ri-add-line"></i>
-              Add Book
-            </button>
-          ) : null}
-        </div>
-        <div className="books-grid">
-          {books.map(({id,name,price,category,author,imageurl})=>{
-   return <BookCard
-   id={id}
-   name={name}
-   price={price}
-   category={category}
-   author={author}
-   imageUrl={
-    imageurl
-   }
-   isLogin={isLogin} key={id}
- />
+const ShowBooks = ({
+  isLogin,
+  handleDisplayAddForm,
+  books,
+  deleteBook,
+  searchBook,
+  ctgType,
+  minPrice,
+  maxPrice,
+}) => {
+  let result = books.filter(
+    (book) =>
+      (ctgType === 'All Genres' || book.category === ctgType) &&
+      (minPrice === '' || book.price >= minPrice) &&
+      (maxPrice === '' || book.price <= maxPrice) &&
+      (searchBook === '' || book.name.toLowerCase().includes(searchBook.toLowerCase()))
+  );
+  return (
+    <section className='books-side'>
+      <div className='books-header'>
+        <h2 className='sec-title'>Books</h2>
+        {isLogin ? (
+          <button
+            className='btn filter-btn'
+            onClick={() => handleDisplayAddForm()}>
+            <i className='ri-add-line'></i>
+            Add Book
+          </button>
+        ) : null}
+      </div>
+      {result.length > 0 ? (
+        <div className='books-grid'>
+          {result.map(({ id, name, price, category, author, imageurl }) => {
+            return (
+              <BookCard
+                id={id}
+                name={name}
+                price={price}
+                category={category}
+                author={author}
+                imageUrl={imageurl}
+                isLogin={isLogin}
+                key={id}
+                deleteBook={deleteBook}
+              />
+            );
           })}
         </div>
-      </section>
-    )
-  }
-}
+      ) : (
+        <EmptyBooks />
+      )}
+    </section>
+  );
+};
 
 export default ShowBooks;
