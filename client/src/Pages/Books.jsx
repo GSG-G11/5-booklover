@@ -33,7 +33,9 @@ class Books extends Component {
     ctgType: 'All Genres',
     minPrice: '',
     maxPrice: '',
-    books: []
+    books: [],
+    currentPage :1,
+    postsPerPage:6
   };
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -125,6 +127,8 @@ class Books extends Component {
     .then(res => console.log(res))
     .catch(err => console.log(err))
   };
+     // Change page
+  paginate = pageNumber => this.setState({currentPage : pageNumber});
 
   render() {
     const {
@@ -143,7 +147,9 @@ class Books extends Component {
       ctgType,
       minPrice,
       maxPrice,
-      books
+      books,
+      currentPage,
+      postsPerPage
     } = this.state;
     const { isBooksPage } = this.props;
     return (
@@ -187,6 +193,9 @@ class Books extends Component {
           handleDisplayAddForm={this.handleDisplayAddForm}
           books={books}
           deleteBook={this.deleteBook}
+          currentPage={ currentPage}
+          postsPerPage={ postsPerPage}
+          paginate={this.paginate}
         />
       </>
     );
