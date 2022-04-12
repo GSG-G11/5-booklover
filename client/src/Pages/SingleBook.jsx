@@ -15,6 +15,7 @@ const SingleBook = (props) => {
     handleChange,
     handleLogin,
     handleLoginSeller,
+    isBooksPage,
   } = props;
   return (
     <div>
@@ -24,6 +25,7 @@ const SingleBook = (props) => {
         handleLogout={handleLogout}
         handleChange={handleChange}
         handleLogin={handleLogin}
+        isBooksPage={isBooksPage}
       />
       <Login
         displayModal={displayModal}

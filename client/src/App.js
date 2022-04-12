@@ -26,6 +26,7 @@ class App extends Component {
     displayModal: false,
     displayModalAdd: false,
     isBooksPage: true,
+    isCartPage: false,
     cart: localStorage.getItem('cart')
       ? JSON.parse(localStorage.getItem('cart'))
       : [],
@@ -142,6 +143,7 @@ class App extends Component {
   render() {
     const {
       isBooksPage,
+      isCartPage,
       cart,
       isLogin,
       nameSeller,
@@ -167,6 +169,7 @@ class App extends Component {
             render={(props) => (
               <Carts
                 isBooksPage={!isBooksPage}
+                isCartPage={!isCartPage}
                 cart={cart}
                 detletFromCart={this.detletFromCart}
                 incrementQuantity={this.incrementQuantity}
@@ -188,6 +191,7 @@ class App extends Component {
                 displayModal={displayModal}
                 handleChange={this.handleChange}
                 passwordSeller={passwordSeller}
+                isBooksPage={!isBooksPage}
                 {...props}
               />
             )}
