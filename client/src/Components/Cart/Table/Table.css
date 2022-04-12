@@ -34,6 +34,7 @@
 }
 .info-name {
     font-weight: bold;
+    margin: 0.3rem 0; 
 }
 .item-quantity {
     width: 100px;

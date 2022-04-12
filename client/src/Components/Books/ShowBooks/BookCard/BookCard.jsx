@@ -31,7 +31,7 @@ const BookCard = ({
               </button>
             </>
           ) : (
-            <button className='btn cart-btn' onClick={() => addToCart({id, name, price, category, author, imageUrl, quantity: 1})}>
+            <button className='btn cart-btn' onClick={() => addToCart({id, name, price, category, author, imageUrl})}>
               <i className='ri-shopping-cart-2-line'></i>
             </button>
           )}
