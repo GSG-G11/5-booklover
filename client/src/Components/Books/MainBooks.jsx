@@ -19,6 +19,8 @@ const MainBooks = ({
   postsPerPage,
   addToCart,
   paginate,
+  incPage,
+  decPage,
 }) => {
   return (
     <div className='container'>
@@ -40,6 +42,8 @@ const MainBooks = ({
           currentPage={currentPage}
           postsPerPage={postsPerPage}
           paginate={paginate}
+          incPage={incPage}
+          decPage={decPage}
           searchBook={searchBook}
           ctgType={ctgType}
           minPrice={minPrice}

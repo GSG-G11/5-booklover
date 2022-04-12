@@ -15,7 +15,9 @@ const ShowBooks = ({
   currentPage,
   postsPerPage,
   addToCart,
-  paginate
+  paginate,
+  incPage,
+  decPage,
 }) => {
   let result = books.filter(
     (book) =>
@@ -24,10 +26,12 @@ const ShowBooks = ({
       (maxPrice === '' || book.price <= maxPrice) &&
       (searchBook === '' || book.name.toLowerCase().includes(searchBook.toLowerCase()))
   );
-       // Get current posts
-       const indexOfLastPost = currentPage * postsPerPage;
-       const indexOfFirstPost = indexOfLastPost - postsPerPage;
-       const currentbooks = result.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentbooks = result.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
     <section className='books-side'>
       <div className='books-header'>
@@ -67,7 +71,10 @@ const ShowBooks = ({
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={result.length}
+        currentPage={currentPage}
         paginate={paginate}
+        incPage={incPage}
+        decPage={decPage}
       />
     </section>
     
