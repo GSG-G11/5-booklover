@@ -112,8 +112,7 @@ class Books extends Component {
       .catch((err) => console.log(err));
   };
 
-  deleteBook(e) {
-    const id = e.target.dataset.id;
+  deleteBook(id) {
     fetch(`/api/v1/book/${id}`, {
       method: 'DELETE',
       headers: {

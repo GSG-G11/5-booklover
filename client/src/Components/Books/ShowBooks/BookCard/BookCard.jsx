@@ -16,7 +16,7 @@ const BookCard = ({ id, name, price, category, author, imageUrl, isLogin, delete
               <button className='btn edit-btn'>
                 <i className='ri-pencil-line'></i>
               </button>
-              <button className='btn delete-btn' data-id={id} onClick={(e) => deleteBook(e)}>
+              <button className='btn delete-btn' onClick={()=>deleteBook(id)}>
                 <i className='ri-delete-bin-line'></i>
               </button>
             </>
