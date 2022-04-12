@@ -17,11 +17,9 @@ const MainBooks = ({
   deleteBook,
   currentPage,
   postsPerPage,
-  paginate
+  addToCart,
+  paginate,
 }) => {
-
- 
- 
   return (
     <div className='container'>
       <div className='row'>
@@ -39,15 +37,15 @@ const MainBooks = ({
           handleDisplayAddForm={handleDisplayAddForm}
           books={books}
           deleteBook={deleteBook}
-          currentPage = {currentPage}
-          postsPerPage= {postsPerPage}
-          paginate= {  paginate}
+          currentPage={currentPage}
+          postsPerPage={postsPerPage}
+          paginate={paginate}
           searchBook={searchBook}
           ctgType={ctgType}
           minPrice={minPrice}
           maxPrice={maxPrice}
+          addToCart={addToCart}
         />
-           
       </div>
     </div>
   );

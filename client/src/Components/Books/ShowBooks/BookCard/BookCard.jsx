@@ -2,7 +2,17 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import './BookCard.css'
 
-const BookCard = ({ id, name, price, category, author, imageUrl, isLogin, deleteBook }) => {
+const BookCard = ({
+  id,
+  name,
+  price,
+  category,
+  author,
+  imageUrl,
+  isLogin,
+  deleteBook,
+  addToCart,
+}) => {
   return (
     <div className='single-book' title={name}>
       <div className='book-img'>
@@ -16,12 +26,12 @@ const BookCard = ({ id, name, price, category, author, imageUrl, isLogin, delete
               <button className='btn edit-btn'>
                 <i className='ri-pencil-line'></i>
               </button>
-              <button className='btn delete-btn' onClick={()=>deleteBook(id)}>
+              <button className='btn delete-btn' onClick={() => deleteBook(id)}>
                 <i className='ri-delete-bin-line'></i>
               </button>
             </>
           ) : (
-            <button className='btn cart-btn'>
+            <button className='btn cart-btn' onClick={() => addToCart({id, name, price, category, author, imageUrl})}>
               <i className='ri-shopping-cart-2-line'></i>
             </button>
           )}
