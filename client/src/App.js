@@ -20,10 +20,11 @@ class App extends Component {
     author: '',
     imageUrl: '',
     searchBook: '',
+    category: 'Arts & Photography',
+    errorAddBook: '',
     ctgType: 'All Genres',
     minPrice: '',
     maxPrice: '',
-    category: 'Arts & Photography',
     displayModal: false,
     displayModalAdd: false,
     isBooksPage: true,
@@ -58,39 +59,50 @@ class App extends Component {
     localStorage.removeItem('nameSeller');
   };
   handleDisplayAddForm = () => {
-    this.setState({ displayModalAdd: !this.state.displayModalAdd });
+    this.setState({ displayModalAdd: !this.state.displayModalAdd, errorAddBook: ''});
   };
 
   addBook = (e) => {
     e.preventDefault();
     const { name, price, author, category, imageUrl, description } = this.state;
-    fetch('/api/v1/book', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        price,
-        author,
-        category,
-        imageUrl,
-        description,
-      }),
-    })
-      .then((data) => data.json())
-      .then((res) => {
-        this.setState({
-          name: '',
-          price: '',
-          author: '',
-          category: 'Arts & Photography',
-          imageUrl: '',
-          description: '',
-          displayModalAdd: false,
-        });
+    if (
+      name === '' ||
+      price === '' ||
+      author === '' ||
+      imageUrl === '' ||
+      description === ''
+    ) {
+      this.setState({errorAddBook: 'All Fields Required!'})
+    } else {
+      fetch('/api/v1/book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          price,
+          author,
+          category,
+          imageUrl,
+          description,
+        }),
       })
-      .catch((err) => console.log(err));
+        .then((data) => data.json())
+        .then((res) => {
+          this.setState({
+            name: '',
+            price: '',
+            author: '',
+            category: 'Arts & Photography',
+            imageUrl: '',
+            description: '',
+            displayModalAdd: false,
+            errorAddBook: ''
+          });
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   addToCart = ({ id, name, price, category, author, imageUrl }) => {
@@ -166,6 +178,7 @@ class App extends Component {
       minPrice,
       maxPrice,
       category,
+      errorAddBook,
     } = this.state;
     return (
       <BrowserRouter>
@@ -231,6 +244,7 @@ class App extends Component {
                 category={category}
                 addBook={this.addBook}
                 errorLogin={errorLogin}
+                errorAddBook={errorAddBook}
               />
             )}
             exact

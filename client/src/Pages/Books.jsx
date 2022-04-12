@@ -114,6 +114,7 @@ class Books extends Component {
       handleChange,
       addBook,
       errorLogin,
+      errorAddBook,
     } = this.props;
     return (
       <>
@@ -146,6 +147,7 @@ class Books extends Component {
           handleChange={handleChange}
           handleDisplayAddForm={handleDisplayAddForm}
           addBook={addBook}
+          errorAddBook={errorAddBook}
         />
         <MainBooks
           categories={categories}
