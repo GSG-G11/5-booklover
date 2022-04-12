@@ -6,15 +6,16 @@ import Subscribe from "../Components/Subscribe/Subscribe"
 
 const Carts = (props) => {
   const {
-    isBooksPage,
+    // isBooksPage,
     cart,
     detletFromCart,
     incrementQuantity,
     decrementQuantity,
+    isCartPage,
   } = props;
   return (
     <div>
-      <Navbar isBooksPage={isBooksPage} />
+      <Navbar isCartPage={isCartPage} />
       {cart.length ? (
         <Cart
           cart={cart}
