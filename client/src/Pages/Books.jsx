@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Login from "../Components/Login/Login";
 import AddBook from "../Components/AddBook/AddBook";
 import MainBooks from '../Components/Books/MainBooks';
+import Subscribe from "../Components/Subscribe/Subscribe"
 const seller = localStorage.getItem('nameSeller');
 const categories = [
   'All Genres',
@@ -36,7 +37,6 @@ class Books extends Component {
     books: [],
     currentPage :1,
     postsPerPage:9,
-    
   };
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -130,6 +130,28 @@ class Books extends Component {
   // Change page
   paginate = pageNumber => this.setState({currentPage : pageNumber});
 
+  incPage = (lastPage) => {
+    const {currentPage} = this.state;
+    if (currentPage === lastPage){
+      return false;
+    }else {
+      this.setState((prevState) => {
+        return {currentPage: prevState.currentPage+1}
+      })
+    }
+  }
+
+  decPage = (firstPage) => {
+    const {currentPage} = this.state;
+    if (currentPage === firstPage){
+      return false;
+    }else {
+      this.setState((prevState) => {
+        return {currentPage: prevState.currentPage-1}
+      })
+    }
+  }
+
   render() {
     const {
       isLogin,
@@ -197,8 +219,11 @@ class Books extends Component {
           currentPage={ currentPage}
           postsPerPage={ postsPerPage}
           paginate={this.paginate}
+          incPage={this.incPage}
+          decPage={this.decPage}
           addToCart={addToCart}
         />
+        <Subscribe/>
       </>
     );
   }
