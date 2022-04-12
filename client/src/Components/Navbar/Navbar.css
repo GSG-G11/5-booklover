@@ -4,6 +4,7 @@
     align-items: center;
     align-content: center;
     padding: 1em;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07);
 }
 .logo { 
      display: flex;

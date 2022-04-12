@@ -2,7 +2,23 @@ import EmptyBooks from "../EmptyBooks/EmptyBooks";
 import BookCard from "./BookCard/BookCard";
 import "./ShowBooks.css";
 // { isLogin }
-const ShowBooks = ({ isLogin, handleDisplayAddForm, books, deleteBook }) => {
+const ShowBooks = ({
+  isLogin,
+  handleDisplayAddForm,
+  books,
+  deleteBook,
+  searchBook,
+  ctgType,
+  minPrice,
+  maxPrice,
+}) => {
+  let result = books.filter(
+    (book) =>
+      (ctgType === 'All Genres' || book.category === ctgType) &&
+      (minPrice === '' || book.price >= minPrice) &&
+      (maxPrice === '' || book.price <= maxPrice) &&
+      (searchBook === '' || book.name.toLowerCase().includes(searchBook.toLowerCase()))
+  );
   return (
     <section className='books-side'>
       <div className='books-header'>
@@ -16,9 +32,9 @@ const ShowBooks = ({ isLogin, handleDisplayAddForm, books, deleteBook }) => {
           </button>
         ) : null}
       </div>
-      {books.length > 0 ? (
+      {result.length > 0 ? (
         <div className='books-grid'>
-          {books.map(({ id, name, price, category, author, imageurl }) => {
+          {result.map(({ id, name, price, category, author, imageurl }) => {
             return (
               <BookCard
                 id={id}
