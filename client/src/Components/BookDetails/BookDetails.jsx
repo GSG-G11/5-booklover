@@ -17,18 +17,14 @@ componentDidMount(){
 }
   render(){
     const {book:{id, author,description,imageurl,name,price}} = this.state
-    const {addToCart} = this.props;
+    const { addToCart, isLogin } = this.props;
     return (
       <div className='container'>
         <div className='wrapper'>
           <div className='image'>
-            <img
-              className='book-image'
-              src={imageurl}
-              alt={name}
-            />
+            <img className='book-image' src={imageurl} alt={name} />
           </div>
-    
+
           <div className='data'>
             <div className='iconStart'>
               <span className='checked'>
@@ -49,21 +45,30 @@ componentDidMount(){
               <span className='num'> 45 </span>
             </div>
             <div className='content'>
-              <h3 className='title'>
-                {name}
-              </h3>
+              <h3 className='title'>{name}</h3>
               <span className='author'>{author}</span>
-              <p className='text'>
-               {description}
-              </p>
+              <p className='text'>{description}</p>
               <h3 className='price'> $ {price}</h3>
             </div>
-    
+
             <div className='buttons'>
-              <button className='Buy' onClick={() => addToCart({id, author,description,imageUrl: imageurl,name,price})}>
-                <i className="ri-add-line"></i>
-                Add To Cart
-              </button>
+              {isLogin ? null : (
+                <button
+                  className='Buy'
+                  onClick={() =>
+                    addToCart({
+                      id,
+                      author,
+                      description,
+                      imageUrl: imageurl,
+                      name,
+                      price,
+                    })
+                  }>
+                  <i className='ri-add-line'></i>
+                  Add To Cart
+                </button>
+              )}
               <Link to='/' className='browser '>
                 Continue Browsing
               </Link>
@@ -71,7 +76,7 @@ componentDidMount(){
           </div>
         </div>
       </div>
-    )
+    );
   }
 
 
