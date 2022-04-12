@@ -1,7 +1,8 @@
 import EmptyBooks from "../EmptyBooks/EmptyBooks";
 import BookCard from "./BookCard/BookCard";
 import "./ShowBooks.css";
-// { isLogin }
+import Pagination from "../../Pagination/Pagination";
+
 const ShowBooks = ({
   isLogin,
   handleDisplayAddForm,
@@ -11,6 +12,9 @@ const ShowBooks = ({
   ctgType,
   minPrice,
   maxPrice,
+  currentPage,
+  postsPerPage,
+  paginate
 }) => {
   let result = books.filter(
     (book) =>
@@ -19,6 +23,10 @@ const ShowBooks = ({
       (maxPrice === '' || book.price <= maxPrice) &&
       (searchBook === '' || book.name.toLowerCase().includes(searchBook.toLowerCase()))
   );
+       // Get current posts
+       const indexOfLastPost = currentPage * postsPerPage;
+       const indexOfFirstPost = indexOfLastPost - postsPerPage;
+       const currentbooks = result.slice(indexOfFirstPost, indexOfLastPost);
   return (
     <section className='books-side'>
       <div className='books-header'>
@@ -32,9 +40,9 @@ const ShowBooks = ({
           </button>
         ) : null}
       </div>
-      {result.length > 0 ? (
+      {currentbooks.length > 0 ? (
         <div className='books-grid'>
-          {result.map(({ id, name, price, category, author, imageurl }) => {
+          {currentbooks.map(({ id, name, price, category, author, imageurl }) => {
             return (
               <BookCard
                 id={id}
@@ -53,7 +61,14 @@ const ShowBooks = ({
       ) : (
         <EmptyBooks />
       )}
+      {}
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={result.length}
+        paginate={paginate}
+      />
     </section>
+    
   );
 };
 
