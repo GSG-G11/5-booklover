@@ -131,7 +131,7 @@ class Books extends Component {
     .catch(err => console.log(err))
   };
 
-  addToCart = ({id, name, price, category, author, imageUrl}) => {
+  addToCart = ({id, name, price, category, author, imageUrl, quantity}) => {
     const {cart} = this.state;
     const dbCart = cart.filter(book => book.id === id);
 
@@ -139,7 +139,7 @@ class Books extends Component {
       alert('This Book is Already Exist!')
     } else{
       this.setState((prevState) => {
-        return {cart: [...prevState.cart, {id, name, price, category, author, imageUrl}]}
+        return {cart: [...prevState.cart, {id, name, price, category, author, imageUrl, quantity}]}
       })
     }
     
