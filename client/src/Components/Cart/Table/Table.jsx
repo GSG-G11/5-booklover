@@ -4,7 +4,7 @@ import TableHeader from "./TableHeader";
 import TableItem from "./TableItem";
 
 const Table = (props) => {
-  const { cart, detletFromCart, incrementQuantity } = props;
+  const { cart, detletFromCart, incrementQuantity,decrementQuantity } = props;
   return (
     <div>
       <TableHeader />
@@ -15,6 +15,7 @@ const Table = (props) => {
             key={item.id}
             detletFromCart={detletFromCart}
             incrementQuantity={incrementQuantity}
+            decrementQuantity={decrementQuantity}
           />
         );
       })}

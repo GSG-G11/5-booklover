@@ -40,7 +40,16 @@ class App extends Component {
     const { cart } = this.state;
     const book = cart.filter((book) => book.id === id);
     book[0].quantity ++
-    console.log(book[0].quantity)
+    this.setState({cart})
+  };
+  decrementQuantity = (id) => {
+    const { cart } = this.state;
+    const book = cart.filter((book) => book.id === id);
+    if(book[0].quantity >= 1) {
+      book[0].quantity --
+    }else {
+      book[0].quantity = 0
+    }
     this.setState({cart})
   };
   componentDidUpdate(prevState, prevProps) {
@@ -61,6 +70,7 @@ class App extends Component {
                 cart={cart}
                 detletFromCart={this.detletFromCart}
                 incrementQuantity= {this.incrementQuantity}
+                decrementQuantity={this.decrementQuantity}
               />
             )}
           />

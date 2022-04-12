@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TableItem = (props) => {
-  const { item,detletFromCart, incrementQuantity} = props;
+  const { item,detletFromCart, incrementQuantity, decrementQuantity} = props;
   return (
     <div className="table-item">
       <div className="item-info">
@@ -15,7 +15,7 @@ const TableItem = (props) => {
         </div>
       </div>
       <div className="item-quantity">
-        <button className="minus">-</button>
+        <button className="minus" onClick={()=> decrementQuantity(item.id)}>-</button>
         {item.quantity}
         <button className="plus"  onClick={()=> incrementQuantity(item.id)}>+</button>
       </div>
