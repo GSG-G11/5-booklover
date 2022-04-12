@@ -183,10 +183,10 @@ class App extends Component {
   decrementQuantity = (id) => {
     const { cart } = this.state;
     const book = cart.filter((book) => book.id === id);
-    if (book[0].quantity >= 1) {
+    if (book[0].quantity >= 2) {
       book[0].quantity--;
     } else {
-      book[0].quantity = 0;
+      book[0].quantity = 1;
     }
     this.setState({ cart });
   };
