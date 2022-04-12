@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TableItem = (props) => {
   const { item } = props;
@@ -6,10 +7,10 @@ const TableItem = (props) => {
   return (
     <div className="table-item">
       <div className="item-info">
-        <img src={item.imageUrl} alt="item"/>
+        <Link to={'/book/' + item.id} className="link"><img src={item.imageUrl} alt="item"/></Link>
         <div className="info">
           <span className="info-date">{item.date}</span>
-          <span className="info-name">{item.name}</span>
+          <Link to={'/book/' + item.id} className="info-name link">{item.name}</Link>
           <span className="info-author">{item.author}</span>
           
         </div>
