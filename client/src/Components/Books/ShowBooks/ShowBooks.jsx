@@ -14,6 +14,7 @@ const ShowBooks = ({
   maxPrice,
   currentPage,
   postsPerPage,
+  addToCart,
   paginate
 }) => {
   let result = books.filter(
@@ -54,6 +55,7 @@ const ShowBooks = ({
                 isLogin={isLogin}
                 key={id}
                 deleteBook={deleteBook}
+                addToCart={addToCart}
               />
             );
           })}
