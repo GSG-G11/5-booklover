@@ -5,10 +5,10 @@ import Summary from './Summary/Summary'
 import Table from './Table/Table'
 
 const Cart = (props) => {
-  const {fakeDate} = props
+  const {cartBooks} = props
   return (
     <div className='container'>
-        <Table fakeDate={fakeDate}/>
+        <Table fakeDate={cartBooks}/>
         <div className='wrap'>
         <Link to='/' className='continue-shop'>Continue Shop</Link>
         </div>
