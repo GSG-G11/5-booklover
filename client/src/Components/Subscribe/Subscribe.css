@@ -1,6 +1,6 @@
 .subscribe {
     background-color: #8D28AD;
-    
+    margin-top: 2rem;
 }
 .container.subscribe {
     display: flex;
@@ -12,11 +12,12 @@
  color: #fff;
  font-size: 2em;
  width: 13em;
+ font-weight: 500;
 }
 .input-sub {
    background-color: rgba(157,73,184,0.9);
    color:#fff;
-   padding: 0.5em;
+   padding: 0.3rem 1rem;
    height: 4em;
    margin-right: 0.5em;
    border-radius:5px;
@@ -29,6 +30,6 @@
     background-color: #fff;
     color: #8D28AD;
     border-radius: 5px;
-    padding: 0.5em 0.8em;
+    padding: 0.3em 1rem;
     height: 4em;
 }
