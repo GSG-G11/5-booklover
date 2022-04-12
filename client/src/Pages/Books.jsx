@@ -36,7 +36,7 @@ class Books extends Component {
     books: [],
     currentPage :1,
     postsPerPage:9,
-    cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+    
   };
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -78,9 +78,6 @@ class Books extends Component {
   componentDidUpdate(prevState, prevProps) {
     if(prevState.books !== this.state.books){
       this.getBooks();
-    }
-    if(prevState.cart !== this.state.cart){
-      localStorage.setItem('cart', JSON.stringify(this.state.cart))
     }
   }
 
@@ -130,21 +127,6 @@ class Books extends Component {
     .then(res => console.log(res))
     .catch(err => console.log(err))
   };
-
-  addToCart = ({id, name, price, category, author, imageUrl, quantity}) => {
-    const {cart} = this.state;
-    const dbCart = cart.filter(book => book.id === id);
-
-    if(dbCart.length > 0){
-      alert('This Book is Already Exist!')
-    } else{
-      this.setState((prevState) => {
-        return {cart: [...prevState.cart, {id, name, price, category, author, imageUrl, quantity}]}
-      })
-    }
-    
-  }
-
   // Change page
   paginate = pageNumber => this.setState({currentPage : pageNumber});
 
@@ -169,7 +151,7 @@ class Books extends Component {
       currentPage,
       postsPerPage
     } = this.state;
-    const { isBooksPage } = this.props;
+    const { isBooksPage,addToCart } = this.props;
     return (
       <>
         <Navbar
@@ -215,7 +197,7 @@ class Books extends Component {
           currentPage={ currentPage}
           postsPerPage={ postsPerPage}
           paginate={this.paginate}
-          addToCart={this.addToCart}
+          addToCart={addToCart}
         />
       </>
     );
