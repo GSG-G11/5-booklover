@@ -4,13 +4,11 @@ import EmptyCart from '../Components/Cart/EmptyCart/EmptyCart'
 import Cart from '../Components/Cart/Cart'
 
 const Carts = (props) => {
-  const {isBooksPage} = props
-  const cartBooks = JSON.parse(localStorage.getItem('cart'))
-
+  const {isBooksPage,cart,detletFromCart} = props
   return (
     <div>
       <Navbar isBooksPage={isBooksPage} />
-      { cartBooks? <Cart cartBooks={cartBooks}/> : <EmptyCart/> }
+      { cart.length? <Cart cart={cart} detletFromCart={detletFromCart}/> : <EmptyCart/> }
     </div>
   )
 }

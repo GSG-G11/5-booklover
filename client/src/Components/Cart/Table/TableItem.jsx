@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TableItem = (props) => {
-  const { item } = props;
-  console.log(item);
+  const { item,detletFromCart } = props;
   return (
     <div className="table-item">
       <div className="item-info">
@@ -23,7 +22,7 @@ const TableItem = (props) => {
       <div className="item-price">${item.price}</div>
       <div className="item-total-price">${item.quantity * item.price}</div>
       <div className="item-action">
-        <button>
+        <button onClick={()=>detletFromCart(item.id)}>
           <i className="ri-delete-bin-7-line"></i>
         </button>
       </div>
