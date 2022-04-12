@@ -61,9 +61,10 @@ const ShowBooks = ({
       ) : (
         <EmptyBooks />
       )}
+      {}
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={books.length}
+        totalPosts={result.length}
         paginate={paginate}
       />
     </section>
