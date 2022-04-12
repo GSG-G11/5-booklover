@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Login from "../Components/Login/Login";
 import AddBook from "../Components/AddBook/AddBook";
 import MainBooks from '../Components/Books/MainBooks';
+import Subscribe from "../Components/Subscribe/Subscribe"
 const seller = localStorage.getItem('nameSeller');
 const categories = [
   'All Genres',
@@ -199,6 +200,7 @@ class Books extends Component {
           paginate={this.paginate}
           addToCart={addToCart}
         />
+        <Subscribe/>
       </>
     );
   }
