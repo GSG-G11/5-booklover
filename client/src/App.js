@@ -42,6 +42,7 @@ class App extends Component {
     this.setState({ isLogin: true });
     const { nameSeller } = this.state;
     localStorage.setItem('nameSeller', nameSeller);
+    this.setState({nameSeller: '', passwordSeller: ''})
     this.handleLogin(e);
   };
   handleLogin = (e) => {
