@@ -2,7 +2,15 @@ import React from 'react'
 import './Login.css'
 
 const Login = (props) => {
-  const { displayModal,nameSeller, passwordSeller, handleChange,handleLogin, handleLoginSeller } = props
+  const {
+    displayModal,
+    nameSeller,
+    passwordSeller,
+    handleChange,
+    handleLogin,
+    handleLoginSeller,
+    errorLogin,
+  } = props;
   return (
     displayModal && (
       <div className='login-modal'>
@@ -24,7 +32,7 @@ const Login = (props) => {
             value={passwordSeller}
             onChange={handleChange}
           />
-          <span className='error'></span>
+          <span className='error'>{errorLogin}</span>
           <button
             type='click'
             className='form-login-Btn'

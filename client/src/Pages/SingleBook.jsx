@@ -16,6 +16,7 @@ const SingleBook = (props) => {
     handleLogin,
     handleLoginSeller,
     isBooksPage,
+    errorLogin,
   } = props;
   return (
     <div>
@@ -34,6 +35,7 @@ const SingleBook = (props) => {
         handleChange={handleChange}
         handleLogin={handleLogin}
         handleLoginSeller={handleLoginSeller}
+        errorLogin={errorLogin}
       />
       <BookDetails isLogin={isLogin} id={id} addToCart={addToCart} />
       <Subscribe />

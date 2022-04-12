@@ -112,7 +112,8 @@ class Books extends Component {
       nameSeller,
       displayModalAdd,
       handleChange,
-      addBook
+      addBook,
+      errorLogin,
     } = this.props;
     return (
       <>
@@ -131,6 +132,7 @@ class Books extends Component {
           handleChange={handleChange}
           handleLogin={handleLogin}
           handleLoginSeller={handleLoginSeller}
+          errorLogin={errorLogin}
         />
         <AddBook
           categories={categories}

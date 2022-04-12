@@ -13,6 +13,7 @@ class App extends Component {
     isLogin: seller ? true : false,
     nameSeller: '',
     passwordSeller: '',
+    errorLogin: '',
     name: '',
     price: '',
     description: '',
@@ -39,15 +40,18 @@ class App extends Component {
 
   handleLoginSeller = (e) => {
     e.preventDefault();
-    this.setState({ isLogin: true });
-    const { nameSeller } = this.state;
-    localStorage.setItem('nameSeller', nameSeller);
-    this.setState({nameSeller: '', passwordSeller: ''})
-    this.handleLogin(e);
+    const { nameSeller, passwordSeller } = this.state;
+    if (nameSeller === '' || passwordSeller === ''){
+      this.setState({errorLogin: 'All Fields Required!'})
+    } else{
+      this.setState({ isLogin: true, errorLogin: '' });
+      localStorage.setItem('nameSeller', nameSeller);
+      this.handleLogin(e);
+    }
   };
   handleLogin = (e) => {
     e.preventDefault();
-    this.setState({ displayModal: !this.state.displayModal });
+    this.setState({ displayModal: !this.state.displayModal, nameSeller: '', passwordSeller: '', errorLogin: '' });
   };
   handleLogout = () => {
     this.setState({ isLogin: false });
@@ -148,9 +152,10 @@ class App extends Component {
       cart,
       isLogin,
       nameSeller,
+      passwordSeller,
+      errorLogin,
       displayModal,
       displayModalAdd,
-      passwordSeller,
       name,
       price,
       description,
@@ -193,6 +198,7 @@ class App extends Component {
                 handleChange={this.handleChange}
                 passwordSeller={passwordSeller}
                 isBooksPage={!isBooksPage}
+                errorLogin={errorLogin}
                 {...props}
               />
             )}
@@ -224,6 +230,7 @@ class App extends Component {
                 maxPrice={maxPrice}
                 category={category}
                 addBook={this.addBook}
+                errorLogin={errorLogin}
               />
             )}
             exact
