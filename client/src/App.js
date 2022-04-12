@@ -6,6 +6,7 @@ import NotFound from "./Pages/NotFound";
 import "./App.css";
 import "remixicon/fonts/remixicon.css";
 import SingleBook from "./Pages/SingleBook";
+import Swal from "sweetalert2";
 
 const seller = localStorage.getItem('nameSeller');
 class App extends Component {
@@ -90,6 +91,7 @@ class App extends Component {
       })
         .then((data) => data.json())
         .then((res) => {
+          console.log(res);
           this.setState({
             name: '',
             price: '',
@@ -100,6 +102,13 @@ class App extends Component {
             displayModalAdd: false,
             errorAddBook: ''
           });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: res.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
         .catch((err) => console.log(err));
     }
@@ -110,7 +119,10 @@ class App extends Component {
     const dbCart = cart.filter((book) => book.id === id);
 
     if (dbCart.length > 0) {
-      alert('This Book is Already Exist!');
+      Swal.fire({
+        icon: 'error',
+        title: 'This Book is Already Exist!',
+      })
     } else {
       this.setState((prevState) => {
         return {
@@ -129,12 +141,38 @@ class App extends Component {
           ],
         };
       });
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Book Add To Cart Successfully!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   };
   detletFromCart = (id) => {
     const { cart } = this.state;
-    const unDeletedBooks = cart.filter((book) => book.id !== id);
-    this.setState({ cart: unDeletedBooks });
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You are going to delete this book!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(result => {
+      if(result.isConfirmed){
+        const unDeletedBooks = cart.filter((book) => book.id !== id);
+        this.setState({ cart: unDeletedBooks });
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Book Deleted Successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    })
   };
   incrementQuantity = (id) => {
     const { cart } = this.state;

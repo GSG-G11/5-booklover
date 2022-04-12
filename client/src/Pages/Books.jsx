@@ -4,6 +4,7 @@ import Login from "../Components/Login/Login";
 import AddBook from "../Components/AddBook/AddBook";
 import MainBooks from '../Components/Books/MainBooks';
 import Subscribe from '../Components/Subscribe/Subscribe';
+import Swal from "sweetalert2";
 const categories = [
   'All Genres',
   'Arts & Photography',
@@ -45,18 +46,38 @@ class Books extends Component {
   }
 
   deleteBook(id) {
-    fetch(`/api/v1/book/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: id,
-      }),
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You are going to delete this book!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`/api/v1/book/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: id,
+          }),
+        })
+          .then((data) => data.json())
+          .then((res) => {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: res.message,
+              showConfirmButton: false,
+              timer: 1500
+            })
+          })
+          .catch((err) => console.log(err));
+      }
     })
-      .then((data) => data.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
   }
   // Change page
   paginate = (pageNumber) => this.setState({ currentPage: pageNumber });

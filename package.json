@@ -24,7 +24,8 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "joi": "^17.6.0",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "sweetalert2": "^11.4.8"
   },
   "devDependencies": {
     "eslint": "^8.13.0",
