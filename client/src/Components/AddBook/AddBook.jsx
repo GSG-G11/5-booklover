@@ -13,7 +13,8 @@ const AddBook = (props) => {
     description,
     handleChange,
     handleDisplayAddForm,
-    addBook
+    addBook,
+    errorAddBook,
   } = props;
 
   return (
@@ -92,6 +93,7 @@ const AddBook = (props) => {
               onChange={handleChange}
             />
           </div>
+          <span className="error">{errorAddBook}</span>
 
           <div className='add-form-Btns'>
             <button

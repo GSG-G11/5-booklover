@@ -43,3 +43,7 @@
     border: none;
     color: #fff;
 }
+.error{
+    color: rgb(241, 59, 59);
+    font-size: .9rem;
+}
