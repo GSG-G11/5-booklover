@@ -4,7 +4,16 @@ import "./Navbar.css";
 import logo from './logo.svg'
 
 const Navbar = (props) => {
-  const { isLogin, searchBook, handleChange, isBooksPage, isCartPage, handleLogin, handleLogout} = props;
+  const {
+    isLogin,
+    searchBook,
+    handleChange,
+    isBooksPage,
+    isCartPage,
+    handleLogin,
+    handleLogout,
+    cart,
+  } = props;
   return (
     <nav className='nav'>
       <div className='logo'>
@@ -44,8 +53,11 @@ const Navbar = (props) => {
                 Login
               </button>
             ) }
-            <Link className='link' to='/Cart'>
+            <Link className='link cart-btn' to='/Cart'>
               <i className='ri-shopping-cart-2-line'></i>
+              {
+                cart.length ?  <span className="num">{cart.length > 9 ? '+9' : cart.length}</span> : null
+              }
             </Link>
           </div>
         )}

@@ -117,6 +117,7 @@ class Books extends Component {
       errorAddBook,
       editMode,
       editBook,
+      cart
     } = this.props;
     return (
       <>
@@ -127,6 +128,7 @@ class Books extends Component {
           handleChange={handleChange}
           handleLogin={handleLogin}
           handleLogout={handleLogout}
+          cart={cart}
         />
         <Login
           displayModal={displayModal}

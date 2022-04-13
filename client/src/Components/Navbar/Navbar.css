@@ -83,3 +83,26 @@
     font-weight: 500;
     margin-top: 0.2rem;
 }
+
+.cart-btn{
+    font-size: 1.4rem;
+    position: relative;
+}
+
+.cart-btn .num{
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    top: -4px;
+    right: -7px;
+    background-color: rgb(255, 48, 48);
+    width: 20px;
+    height: 20px;
+    font-size: .75rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #FFF;
+    pointer-events: none;
+}
+
