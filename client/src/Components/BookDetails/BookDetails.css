@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  margin-top: 7rem;
+  margin: 7rem 0 3rem;
   align-items: center;
 }
 .book-image {

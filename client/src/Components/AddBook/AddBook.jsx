@@ -87,9 +87,11 @@ const AddBook = (props) => {
             <label>Image Url</label>
             <input
               className='input-add'
-              type='text'
-              placeholder='http://'
+              type='url'
+              placeholder='http://exampl.com'
               name='imageUrl'
+              required='required'
+              pattern="https://.*"
               value={imageUrl}
               onChange={handleChange}
             />
