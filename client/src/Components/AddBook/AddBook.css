@@ -24,8 +24,9 @@
 }
 label {
     display: block;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 0.2em;
+    font-size: .9rem;
 }
 .input-add {
     width: 30vw;
