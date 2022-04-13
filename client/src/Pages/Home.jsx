@@ -5,6 +5,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import Subscribe from '../Components/Subscribe/Subscribe';
 import Trending from '../Components/Trending/Trending';
 import Features from "../Components/Features/Features";
+import Banner from '../Components/Banner/Banner'
 
 const Home = ({
   isBooksPage,
@@ -43,6 +44,7 @@ const Home = ({
         handleLoginSeller={handleLoginSeller}
         errorLogin={errorLogin}
       />
+      <Banner />
       <Trending books={books} />
       <Features/>
       <Subscribe />
