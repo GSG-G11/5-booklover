@@ -15,13 +15,14 @@ const AddBook = (props) => {
     handleDisplayAddForm,
     addBook,
     errorAddBook,
+    editMode,
   } = props;
 
   return (
     displayModalAdd && (
       <div className='add-modal'>
         <form className='form-add'>
-          <h2 className='add-book-text'>Add Book</h2>
+          <h2 className='add-book-text'>{editMode ? 'Edit' : 'Add'} Book</h2>
           <div>
             <label>Name</label>
             <input
@@ -100,7 +101,7 @@ const AddBook = (props) => {
               type='click'
               className='add-form-Btn'
               onClick={(e) => addBook(e)}>
-              Add
+              {editMode ? 'Save' : 'Add'}
             </button>
             <button
               type='click'

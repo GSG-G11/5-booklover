@@ -115,6 +115,8 @@ class Books extends Component {
       addBook,
       errorLogin,
       errorAddBook,
+      editMode,
+      editBook,
     } = this.props;
     return (
       <>
@@ -148,6 +150,7 @@ class Books extends Component {
           handleDisplayAddForm={handleDisplayAddForm}
           addBook={addBook}
           errorAddBook={errorAddBook}
+          editMode={editMode}
         />
         <MainBooks
           categories={categories}
@@ -166,6 +169,7 @@ class Books extends Component {
           incPage={this.incPage}
           decPage={this.decPage}
           addToCart={addToCart}
+          editBook={editBook}
         />
         <Subscribe />
         <Footer />

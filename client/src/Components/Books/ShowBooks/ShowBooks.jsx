@@ -18,6 +18,7 @@ const ShowBooks = ({
   paginate,
   incPage,
   decPage,
+  editBook,
 }) => {
   let result = books.filter(
     (book) =>
@@ -47,19 +48,21 @@ const ShowBooks = ({
       </div>
       {currentbooks.length > 0 ? (
         <div className='books-grid'>
-          {currentbooks.map(({ id, name, price, category, author, imageurl }) => {
+          {currentbooks.map(({ id, name, description, price, category, author, imageurl }) => {
             return (
               <BookCard
                 id={id}
                 name={name}
                 price={price}
                 category={category}
+                description={description}
                 author={author}
                 imageUrl={imageurl}
                 isLogin={isLogin}
                 key={id}
                 deleteBook={deleteBook}
                 addToCart={addToCart}
+                editBook={editBook}
               />
             );
           })}
