@@ -69,7 +69,7 @@ componentDidMount(){
                   Add To Cart
                 </button>
               )}
-              <Link to='/' className='browser '>
+              <Link to='/books' className='browser '>
                 Continue Browsing
               </Link>
             </div>
