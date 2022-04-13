@@ -1,0 +1,30 @@
+.container.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5em 15px;
+}
+.feature {
+    margin-bottom: 1em;
+}
+.feature img {
+    display: inline-block;
+    margin-bottom: 1em;
+}
+.feature h4 {
+   font-weight: 500;
+   font-size: 22px;
+   margin-bottom: 0.5em;
+}
+.feature p {
+    color:#755A7D;
+    width: 280px;
+    font-size: 12px;
+}
+@media (max-width:768px) {
+    .container.features {
+        justify-content: center;
+        text-align: center;
+    }
+}
