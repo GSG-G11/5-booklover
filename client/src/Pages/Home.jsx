@@ -3,7 +3,12 @@ import Footer from '../Components/Footer/Footer';
 import Login from '../Components/Login/Login';
 import Navbar from '../Components/Navbar/Navbar';
 import Subscribe from '../Components/Subscribe/Subscribe';
+<<<<<<< HEAD
 import Banner from '../Components/Banner/Banner';
+=======
+import Trending from '../Components/Trending/Trending';
+import Features from "../Components/Features/Features";
+>>>>>>> e3498f5a3b28ab0bee2dc43044b32fb476c97b82
 
 const Home = ({
   isBooksPage,
@@ -17,7 +22,8 @@ const Home = ({
   displayModal,
   passwordSeller,
   handleLoginSeller,
-  errorLogin
+  errorLogin,
+  books
 }) => {
   return (
     <div>

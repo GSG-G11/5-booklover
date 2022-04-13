@@ -6,6 +6,7 @@ import MainBooks from '../Components/Books/MainBooks';
 import Subscribe from '../Components/Subscribe/Subscribe';
 import Swal from "sweetalert2";
 import Footer from "../Components/Footer/Footer";
+import Features from "../Components/Features/Features";
 const categories = [
   'All Genres',
   'Arts & Photography',
@@ -173,6 +174,7 @@ class Books extends Component {
           addToCart={addToCart}
           editBook={editBook}
         />
+        <Features/>
         <Subscribe />
         <Footer />
       </>
