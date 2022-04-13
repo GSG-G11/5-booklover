@@ -9,7 +9,7 @@ class BookDetails extends Component {
     err: '',
   };
 
-  componentDidMount() {
+  getSingleBook = () => {
     fetch(`/api/v1/book/${this.props.id}`)
       .then((res) => {
         if (res.status === 200) {
@@ -19,13 +19,23 @@ class BookDetails extends Component {
       .then((data) => this.setState({ book: data.data }))
       .catch((err) => console.log(err));
   }
+
+  componentDidMount() {
+    this.getSingleBook();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.id !== this.props.id){
+      this.getSingleBook();
+    }
+  }
+
   render() {
     const {
       book: { id, author, description, imageurl, name, price, category },
     } = this.state;
     const { addToCart, isLogin, books } = this.props;
     const relatedBooks = books.filter(b => b.category === category && b.id !== id)
-    console.log(relatedBooks);
     return (
       <div className='container'>
         <div className='wrapper'>
