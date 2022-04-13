@@ -62,8 +62,8 @@ const Footer = () => {
       <hr />
       <div className="footer-reserved">
         <div className="container reserved">
-          <p>CLEVR - © 2020 All Rights Reserved</p>
-          <p>Made with ♥ by Team5</p>
+          <p>CLEVR - © 2022 All Rights Reserved</p>
+          <p>Made with ❤️ by Team5</p>
         </div>
       </div>
     </>
