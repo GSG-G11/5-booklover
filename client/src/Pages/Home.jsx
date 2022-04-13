@@ -3,6 +3,8 @@ import Footer from '../Components/Footer/Footer';
 import Login from '../Components/Login/Login';
 import Navbar from '../Components/Navbar/Navbar';
 import Subscribe from '../Components/Subscribe/Subscribe';
+import Trending from '../Components/Trending/Trending';
+import Features from "../Components/Features/Features";
 
 const Home = ({
   isBooksPage,
@@ -16,7 +18,8 @@ const Home = ({
   displayModal,
   passwordSeller,
   handleLoginSeller,
-  errorLogin
+  errorLogin,
+  books
 }) => {
   return (
     <div>
@@ -40,6 +43,8 @@ const Home = ({
         handleLoginSeller={handleLoginSeller}
         errorLogin={errorLogin}
       />
+      <Trending books={books} />
+      <Features/>
       <Subscribe />
       <Footer />
     </div>
