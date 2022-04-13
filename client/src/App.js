@@ -99,7 +99,6 @@ class App extends Component {
     { name, description, price, category, author, imageUrl, id }
   ) => {
     e.preventDefault();
-    // console.log({name, description, price, category, author, imageUrl, id});
     this.handleDisplayAddForm();
     this.setState((prevState) => {
       return {
@@ -154,7 +153,6 @@ class App extends Component {
         })
           .then((data) => data.json())
           .then((res) => {
-            console.log(res);
             this.setState({
               name: '',
               price: '',
