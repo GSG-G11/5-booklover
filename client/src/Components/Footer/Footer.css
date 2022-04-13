@@ -1,0 +1,125 @@
+.footer  {
+    padding: 5em 15px;
+}
+.container.clevr{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo-social {
+    display: flex;
+    
+    flex-direction: column;
+}
+.logo-footer { 
+    display: flex;
+    flex-direction: column;
+}
+.logo-footer .link{
+   display: inline-flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+.logo-footer img{
+   display: inline-block;
+   max-width: 35px;
+   margin-right: .5em;
+}
+.logo-footer .link span{
+   font-size: 2rem;
+   font-weight: bold;
+   display: inline-block;
+   margin-top: 0.4rem;
+   color: #000;
+}
+.logo-footer p {
+    width: 375px;
+    margin-top: 0.8em;
+    margin-bottom: 1.5em;
+    color:#755A7D;
+}
+.social button {
+    margin-right: 0.5em;
+    border: 1px solid rgba(240, 228, 244, 1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0.5em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.social button i {
+    font-size: 2em;
+    color: rgba(202, 143, 221, 1);
+}
+.social button:hover {
+  background-color:#8D28AD;
+}
+.social button:hover i {
+    color: #fff;
+  }
+.properites {
+    margin-top: 1.5em;
+}
+.properites p {
+    width: 410px;
+    color:#755A7D;
+    margin-bottom: 1em;
+}
+.properites .subscribe-footer input {
+ background-color: #F3F3F3;
+ padding: 0.5em;
+ margin-right: 0.5em;
+ border-radius: 5px;
+ height: 40px;
+}
+.properites .subscribe-footer input::placeholder {
+ color:  #A4A4A4;
+}
+.properites .subscribe-footer button {
+    background-color: #8D28AD;
+    color: #fff;
+    padding: 0.5em 0.7em;
+    margin-right: 0.5em;
+    border-radius: 5px;
+    height: 40px;
+   }
+.container.clevr h4 {
+    margin-bottom: 1em;
+}
+.container.clevr .properites span {
+    display: block;
+    color: rgba(117, 90, 125, 1);
+    margin-bottom: 0.6em;
+}
+.footer-reserved {
+    padding: 1em 15px;
+    color: #755A7D;
+}
+.container.reserved {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (max-width:768px) {
+    .container.clevr{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .logo-footer p {
+        width: 300px;
+    }
+    .properites p {
+        width: 300px;
+    }
+    .container.reserved {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container.reserved p {
+        margin-bottom: 0.5em;
+    }
+}
