@@ -20,8 +20,10 @@ class App extends Component {
     description: '',
     author: '',
     imageUrl: '',
-    searchBook: '',
     category: 'Arts & Photography',
+    editMode: false,
+    id: 0,
+    searchBook: '',
     errorAddBook: '',
     ctgType: 'All Genres',
     minPrice: '',
@@ -30,6 +32,7 @@ class App extends Component {
     displayModalAdd: false,
     isBooksPage: true,
     isCartPage: false,
+    books: [],
     cart: localStorage.getItem('cart')
       ? JSON.parse(localStorage.getItem('cart'))
       : [],
@@ -43,9 +46,9 @@ class App extends Component {
   handleLoginSeller = (e) => {
     e.preventDefault();
     const { nameSeller, passwordSeller } = this.state;
-    if (nameSeller === '' || passwordSeller === ''){
-      this.setState({errorLogin: 'All Fields Required!'})
-    } else{
+    if (nameSeller === '' || passwordSeller === '') {
+      this.setState({ errorLogin: 'All Fields Required!' });
+    } else {
       this.setState({ isLogin: true, errorLogin: '' });
       localStorage.setItem('nameSeller', nameSeller);
       this.handleLogin(e);
@@ -53,19 +56,75 @@ class App extends Component {
   };
   handleLogin = (e) => {
     e.preventDefault();
-    this.setState({ displayModal: !this.state.displayModal, nameSeller: '', passwordSeller: '', errorLogin: '' });
+    this.setState({
+      displayModal: !this.state.displayModal,
+      nameSeller: '',
+      passwordSeller: '',
+      errorLogin: '',
+    });
   };
   handleLogout = () => {
     this.setState({ isLogin: false });
     localStorage.removeItem('nameSeller');
   };
   handleDisplayAddForm = () => {
-    this.setState({ displayModalAdd: !this.state.displayModalAdd, errorAddBook: ''});
+    this.setState({
+      displayModalAdd: !this.state.displayModalAdd,
+      errorAddBook: '',
+      editMode: false,
+      name: '',
+      price: '',
+      description: '',
+      author: '',
+      imageUrl: '',
+      category: 'Arts & Photography',
+    });
+  };
+
+  getBooks = () => {
+    fetch('/api/v1/books/show')
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        }
+      })
+      .then((data) => this.setState({ books: data.data }))
+      .catch((err) => this.setState({ err: err }));
+  };
+
+  editBook = (
+    e,
+    { name, description, price, category, author, imageUrl, id }
+  ) => {
+    e.preventDefault();
+    // console.log({name, description, price, category, author, imageUrl, id});
+    this.handleDisplayAddForm();
+    this.setState((prevState) => {
+      return {
+        name,
+        description,
+        price,
+        category,
+        author,
+        imageUrl,
+        id,
+        editMode: true,
+      };
+    });
   };
 
   addBook = (e) => {
     e.preventDefault();
-    const { name, price, author, category, imageUrl, description } = this.state;
+    const {
+      name,
+      price,
+      author,
+      category,
+      imageUrl,
+      description,
+      editMode,
+      id,
+    } = this.state;
     if (
       name === '' ||
       price === '' ||
@@ -73,44 +132,85 @@ class App extends Component {
       imageUrl === '' ||
       description === ''
     ) {
-      this.setState({errorAddBook: 'All Fields Required!'})
+      this.setState({ errorAddBook: 'All Fields Required!' });
     } else {
-      fetch('/api/v1/book', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          price,
-          author,
-          category,
-          imageUrl,
-          description,
-        }),
-      })
-        .then((data) => data.json())
-        .then((res) => {
-          console.log(res);
-          this.setState({
-            name: '',
-            price: '',
-            author: '',
-            category: 'Arts & Photography',
-            imageUrl: '',
-            description: '',
-            displayModalAdd: false,
-            errorAddBook: ''
-          });
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: res.message,
-            showConfirmButton: false,
-            timer: 1500
-          })
+      if (editMode) {
+        fetch(`/api/v1/book/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            price,
+            author,
+            category,
+            imageUrl,
+            description,
+            id
+          }),
         })
-        .catch((err) => console.log(err));
+          .then((data) => data.json())
+          .then((res) => {
+            console.log(res);
+            this.setState({
+              name: '',
+              price: '',
+              author: '',
+              category: 'Arts & Photography',
+              imageUrl: '',
+              description: '',
+              displayModalAdd: false,
+              errorAddBook: '',
+              editMode: false
+            });
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: res.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((err) => console.log(err));
+      } else {
+        fetch('/api/v1/book', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            price,
+            author,
+            category,
+            imageUrl,
+            description,
+          }),
+        })
+          .then((data) => data.json())
+          .then((res) => {
+            console.log(res);
+            this.setState({
+              name: '',
+              price: '',
+              author: '',
+              category: 'Arts & Photography',
+              imageUrl: '',
+              description: '',
+              displayModalAdd: false,
+              errorAddBook: '',
+            });
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: res.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((err) => console.log(err));
+      }
     }
   };
 
@@ -122,7 +222,7 @@ class App extends Component {
       Swal.fire({
         icon: 'error',
         title: 'This Book is Already Exist!',
-      })
+      });
     } else {
       this.setState((prevState) => {
         return {
@@ -146,22 +246,22 @@ class App extends Component {
         icon: 'success',
         title: 'Book Add To Cart Successfully!',
         showConfirmButton: false,
-        timer: 1500
-      })
+        timer: 1500,
+      });
     }
   };
   detletFromCart = (id) => {
     const { cart } = this.state;
     Swal.fire({
       title: 'Are you sure?',
-      text: "You are going to delete this book!",
+      text: 'You are going to delete this book!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then(result => {
-      if(result.isConfirmed){
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
         const unDeletedBooks = cart.filter((book) => book.id !== id);
         this.setState({ cart: unDeletedBooks });
         Swal.fire({
@@ -169,10 +269,10 @@ class App extends Component {
           icon: 'success',
           title: 'Book Deleted Successfully!',
           showConfirmButton: false,
-          timer: 1500
-        })
+          timer: 1500,
+        });
       }
-    })
+    });
   };
   incrementQuantity = (id) => {
     const { cart } = this.state;
@@ -190,11 +290,18 @@ class App extends Component {
     }
     this.setState({ cart });
   };
-  componentDidUpdate(prevState, prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.cart !== this.state.cart) {
       localStorage.setItem('cart', JSON.stringify(this.state.cart));
     }
+    if (prevState.books !== this.state.books) {
+      this.getBooks();
+    }
   }
+  componentDidMount() {
+    this.getBooks();
+  }
+
   render() {
     const {
       isBooksPage,
@@ -217,6 +324,8 @@ class App extends Component {
       maxPrice,
       category,
       errorAddBook,
+      books,
+      editMode,
     } = this.state;
     return (
       <BrowserRouter>
@@ -283,6 +392,10 @@ class App extends Component {
                 addBook={this.addBook}
                 errorLogin={errorLogin}
                 errorAddBook={errorAddBook}
+                books={books}
+                getBooks={this.getBooks}
+                editMode={editMode}
+                editBook={this.editBook}
               />
             )}
             exact

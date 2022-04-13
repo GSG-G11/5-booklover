@@ -9,9 +9,11 @@ const BookCard = ({
   category,
   author,
   imageUrl,
+  description,
   isLogin,
   deleteBook,
   addToCart,
+  editBook
 }) => {
   return (
     <div className='single-book' title={name}>
@@ -23,7 +25,7 @@ const BookCard = ({
           </Link>
           {isLogin ? (
             <>
-              <button className='btn edit-btn'>
+              <button className='btn edit-btn' onClick={(e) => editBook(e, {name, description, price, category, author, imageUrl, id})}>
                 <i className='ri-pencil-line'></i>
               </button>
               <button className='btn delete-btn' onClick={() => deleteBook(id)}>

@@ -21,6 +21,7 @@ const MainBooks = ({
   paginate,
   incPage,
   decPage,
+  editBook,
 }) => {
   return (
     <div className='container'>
@@ -49,6 +50,7 @@ const MainBooks = ({
           minPrice={minPrice}
           maxPrice={maxPrice}
           addToCart={addToCart}
+          editBook={editBook}
         />
       </div>
     </div>
