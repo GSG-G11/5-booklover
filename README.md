@@ -52,8 +52,8 @@ As a **Seller**, I can :
 - Open it with your favorite text editor` code .`
 - create database and role and connected them and read sql file in project
 - add .env in root folder and pit database link like this `DATABASE_URL_DEV = postgres://user name:password@localhost:5432/database name`
-- install all the packages you will need `npm i` $$ `npm run dev`
-- Run in the another terminal `cd client` && `npm i` $$ `npm run start`
+- install all the packages you will need `npm i` && `npm run dev`
+- Run in the another terminal `cd client` && `npm i` && `npm run start`
 - Enjoy Contributing to the`Clevr` website.
 
 
