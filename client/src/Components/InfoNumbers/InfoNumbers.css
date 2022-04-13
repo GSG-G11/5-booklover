@@ -1,0 +1,38 @@
+.info-numbers {
+    margin-top: 7em;
+    background-color: #380B46;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 3em 1em;
+}
+.info-card {
+    color: #fff;
+    margin-bottom: 0.7em;
+    text-align: center;
+}
+.info-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5em;
+    
+}
+.info-num img {
+    width: 45px;
+    height: 45px;
+    margin-right: 1em;
+ }
+.info-num span {
+   font-size: 2.5em;
+   font-weight: 00;
+}
+.info-card p {
+    color: rgba(255,255,255,0.6);
+}
+@media (max-width:768px) {
+    .info-numbers {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
