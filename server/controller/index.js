@@ -4,6 +4,7 @@ const {
   deleteBookController,
   getBooksController,
   getSingleBookController,
+  editBookController,
 } = require('./books');
 
 module.exports = {
@@ -13,4 +14,5 @@ module.exports = {
   deleteBookController,
   getBooksController,
   getSingleBookController,
+  editBookController,
 };

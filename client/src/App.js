@@ -20,6 +20,7 @@ class App extends Component {
     description: '',
     author: '',
     imageUrl: '',
+    editMode: false,
     searchBook: '',
     category: 'Arts & Photography',
     errorAddBook: '',
@@ -30,6 +31,7 @@ class App extends Component {
     displayModalAdd: false,
     isBooksPage: true,
     isCartPage: false,
+    books: [],
     cart: localStorage.getItem('cart')
       ? JSON.parse(localStorage.getItem('cart'))
       : [],
@@ -61,6 +63,17 @@ class App extends Component {
   };
   handleDisplayAddForm = () => {
     this.setState({ displayModalAdd: !this.state.displayModalAdd, errorAddBook: ''});
+  };
+
+  getBooks = () => {
+    fetch('/api/v1/books/show')
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        }
+      })
+      .then((data) => this.setState({ books: data.data }))
+      .catch((err) => this.setState({ err: err }));
   };
 
   addBook = (e) => {
@@ -190,11 +203,18 @@ class App extends Component {
     }
     this.setState({ cart });
   };
-  componentDidUpdate(prevState, prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.cart !== this.state.cart) {
       localStorage.setItem('cart', JSON.stringify(this.state.cart));
     }
+    if (prevState.books !== this.state.books) {
+      this.getBooks();
+    }
   }
+  componentDidMount() {
+    this.getBooks();
+  }
+
   render() {
     const {
       isBooksPage,
@@ -217,6 +237,7 @@ class App extends Component {
       maxPrice,
       category,
       errorAddBook,
+      books
     } = this.state;
     return (
       <BrowserRouter>
@@ -283,6 +304,8 @@ class App extends Component {
                 addBook={this.addBook}
                 errorLogin={errorLogin}
                 errorAddBook={errorAddBook}
+                books={books}
+                getBooks={this.getBooks}
               />
             )}
             exact

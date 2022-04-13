@@ -20,31 +20,9 @@ const categories = [
 ];
 class Books extends Component {
   state = {
-    books: [],
     currentPage: 1,
     postsPerPage: 9,
   };
-  
-  getBooks = () => {
-    fetch('/api/v1/books/show')
-      .then((res) => {
-        if (res.status === 200) {
-          return res.json();
-        }
-      })
-      .then((data) => this.setState({ books: data.data }))
-      .catch((err) => this.setState({ err: err }));
-  };
-
-  componentDidMount() {
-    this.getBooks();
-  }
-
-  componentDidUpdate(prevState, prevProps) {
-    if (prevState.books !== this.state.books) {
-      this.getBooks();
-    }
-  }
 
   deleteBook(id) {
     Swal.fire({
@@ -107,11 +85,11 @@ class Books extends Component {
 
   render() {
     const {
-      books,
       currentPage,
       postsPerPage,
     } = this.state;
     const {
+      books,
       passwordSeller,
       name,
       price,
