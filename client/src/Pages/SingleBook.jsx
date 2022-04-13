@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import BookDetails from '../Components/BookDetails/BookDetails'
 import Subscribe from "../Components/Subscribe/Subscribe"
 import Login from '../Components/Login/Login';
+import Footer from '../Components/Footer/Footer';
 const SingleBook = (props) => {
   const { id } = props.match.params;
   const {
@@ -39,6 +40,7 @@ const SingleBook = (props) => {
       />
       <BookDetails isLogin={isLogin} id={id} addToCart={addToCart} />
       <Subscribe />
+      <Footer/>
     </div>
   );
 };
