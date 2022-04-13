@@ -9,12 +9,11 @@ const Banner = () => {
       <div className="hero-text">
         <h1 className="homeTitle">Welcome to Clevr</h1>
         <p className="homeDescription">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris
+        Clevr is a online bookstore website who sells all genres of books from around the world. Find your book here now.
         </p>
         <Link to="/books" className="homeBtn">
           Browse Books
+          <i className="ri-arrow-right-line"></i>
         </Link>
       </div>
     </div>
