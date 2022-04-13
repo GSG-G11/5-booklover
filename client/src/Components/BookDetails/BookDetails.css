@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  margin-top: 7rem;
+  margin: 7rem 0 3rem;
   align-items: center;
 }
 .book-image {
@@ -83,4 +83,29 @@
   padding: 0.5em 1.5em;
   text-decoration: none;
   border-radius: 5px;
+}
+
+
+.related-books{
+  margin: 2rem 0 3rem;
+}
+
+.related-books .sec-title{
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.related-books .books{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.related-books .books .single-related{
+  max-width: 18%;  
+}
+
+.related-books .books .single-related:not(:last-child){
+  margin-right: 2.5%;
 }

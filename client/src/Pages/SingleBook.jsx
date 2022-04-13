@@ -18,7 +18,8 @@ const SingleBook = (props) => {
     handleLoginSeller,
     isBooksPage,
     errorLogin,
-    cart
+    cart,
+    books
   } = props;
   return (
     <div>
@@ -40,7 +41,7 @@ const SingleBook = (props) => {
         handleLoginSeller={handleLoginSeller}
         errorLogin={errorLogin}
       />
-      <BookDetails isLogin={isLogin} id={id} addToCart={addToCart} />
+      <BookDetails isLogin={isLogin} id={id} addToCart={addToCart} books={books} />
       <Subscribe />
       <Footer/>
     </div>

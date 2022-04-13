@@ -362,6 +362,7 @@ class App extends Component {
                 isBooksPage={!isBooksPage}
                 errorLogin={errorLogin}
                 cart={cart}
+                books={books}
                 {...props}
               />
             )}

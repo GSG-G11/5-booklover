@@ -17,19 +17,21 @@ const Trending = ({ books }) => {
           </p>
         </div>
         <div className='books-grid-show'>
-            {
-                trending.map(book => (
-                    <div className="single-book" key={book.id}>
-                        <BookCardShow name={book.name} imageUrl={book.imageurl} id={book.id} />
-                    </div>
-                ))
-            }
+          {trending.map((book) => (
+            <div className='single-book' key={book.id}>
+              <BookCardShow
+                name={book.name}
+                imageUrl={book.imageurl}
+                id={book.id}
+              />
+            </div>
+          ))}
         </div>
-        <div className="btns-div">
-            <Link to='/books' className='btn link'>
-                view more 
-                <i className="ri-arrow-right-line"></i>
-            </Link>
+        <div className='btns-div'>
+          <Link to='/books' className='btn link'>
+            view more
+            <i className='ri-arrow-right-line'></i>
+          </Link>
         </div>
       </div>
     </section>
