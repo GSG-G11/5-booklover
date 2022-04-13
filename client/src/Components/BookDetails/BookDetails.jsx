@@ -75,6 +75,9 @@ componentDidMount(){
             </div>
           </div>
         </div>
+        <section className="related-books">
+          <h3 className="sec-title">Related Items</h3>
+        </section>
       </div>
     );
   }

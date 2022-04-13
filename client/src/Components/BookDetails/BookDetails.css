@@ -84,3 +84,14 @@
   text-decoration: none;
   border-radius: 5px;
 }
+
+
+.related-books{
+  margin: 2rem 0 3rem;
+}
+
+.related-books .sec-title{
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
