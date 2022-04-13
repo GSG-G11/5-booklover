@@ -20,7 +20,7 @@ const Cart = (props) => {
         </Link>
       </div>
 
-      <Summary />
+      <Summary cart={cart} />
     </div>
   );
 };
