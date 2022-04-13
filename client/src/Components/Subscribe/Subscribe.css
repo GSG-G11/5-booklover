@@ -1,6 +1,5 @@
 .subscribe {
     background-color: #8D28AD;
-    margin-top: 2rem;
 }
 .container.subscribe {
     display: flex;
@@ -13,6 +12,7 @@
  font-size: 2em;
  width: 13em;
  font-weight: 500;
+ margin-bottom: 0.7em;
 }
 .input-sub {
    background-color: rgba(157,73,184,0.9);
@@ -32,4 +32,14 @@
     border-radius: 5px;
     padding: 0.3em 1rem;
     height: 4em;
+}
+@media (max-width:768px) {
+    .container.subscribe {
+        flex-direction: column;
+    }
+}
+@media (min-width:769px) and (max-width:1023px) {
+    .container.subscribe {
+        flex-direction: column;
+    }
 }
