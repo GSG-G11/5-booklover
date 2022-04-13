@@ -48,10 +48,12 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    transition: .5s;
 }
 .social button i {
     font-size: 2em;
     color: rgba(202, 143, 221, 1);
+    transition: .5s;
 }
 .social button:hover {
   background-color:#8D28AD;
@@ -92,6 +94,11 @@
     display: block;
     color: rgba(117, 90, 125, 1);
     margin-bottom: 0.6em;
+    transition: .4s;
+}
+.container.clevr .properites span:hover{
+    cursor: pointer;
+    padding-left: .5rem;
 }
 .footer-reserved {
     padding: 1em 15px;

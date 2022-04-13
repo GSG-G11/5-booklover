@@ -31,20 +31,20 @@ const Footer = () => {
           </div>
           <div className="properites">
             <h4>Quich links</h4>
-            <span>About us</span>
-            <span>Contact us</span>
-            <span>Products</span>
-            <span>Login</span>
-            <span>Sign Up</span>
+            <span className="f-link">About us</span>
+            <span className="f-link">Contact us</span>
+            <span className="f-link">Products</span>
+            <span className="f-link">Login</span>
+            <span className="f-link">Sign Up</span>
           </div>
           <div className="properites">
             <h4>Customer Area</h4>
-            <span>My Account</span>
-            <span>Orders</span>
-            <span>Tracking List</span>
-            <span>Terms</span>
-            <span>Privacy Policy</span>
-            <span>FAQ</span>
+            <span className="f-link">My Account</span>
+            <span className="f-link">Orders</span>
+            <span className="f-link">Tracking List</span>
+            <span className="f-link">Terms</span>
+            <span className="f-link">Privacy Policy</span>
+            <span className="f-link">FAQ</span>
           </div>
           <div className="properites">
             <h4>Don’t miss the newest books</h4>
