@@ -1,15 +1,16 @@
 .add-modal {
-    margin: 4em auto 0 ;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 .form-add {
     background-color: #fff;
@@ -18,7 +19,8 @@
 
 }
 .add-book-text {
-    margin-bottom: 5px;
+    margin-bottom: .5rem;
+    text-align: center;
 }
 label {
     display: block;
