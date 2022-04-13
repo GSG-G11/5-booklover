@@ -16,7 +16,7 @@ const Carts = (props) => {
   } = props;
   return (
     <div>
-      <Navbar isCartPage={isCartPage} />
+      <Navbar isCartPage={isCartPage} cart={cart} />
       {cart.length ? (
         <Cart
           cart={cart}

@@ -359,6 +359,7 @@ class App extends Component {
                 passwordSeller={passwordSeller}
                 isBooksPage={!isBooksPage}
                 errorLogin={errorLogin}
+                cart={cart}
                 {...props}
               />
             )}
@@ -396,6 +397,7 @@ class App extends Component {
                 getBooks={this.getBooks}
                 editMode={editMode}
                 editBook={this.editBook}
+                cart={cart}
               />
             )}
             exact
