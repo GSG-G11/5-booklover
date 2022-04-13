@@ -115,7 +115,16 @@ class App extends Component {
 
   addBook = (e) => {
     e.preventDefault();
-    const { name, price, author, category, imageUrl, description } = this.state;
+    const {
+      name,
+      price,
+      author,
+      category,
+      imageUrl,
+      description,
+      editMode,
+      id,
+    } = this.state;
     if (
       name === '' ||
       price === '' ||
@@ -125,42 +134,83 @@ class App extends Component {
     ) {
       this.setState({ errorAddBook: 'All Fields Required!' });
     } else {
-      fetch('/api/v1/book', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          price,
-          author,
-          category,
-          imageUrl,
-          description,
-        }),
-      })
-        .then((data) => data.json())
-        .then((res) => {
-          console.log(res);
-          this.setState({
-            name: '',
-            price: '',
-            author: '',
-            category: 'Arts & Photography',
-            imageUrl: '',
-            description: '',
-            displayModalAdd: false,
-            errorAddBook: '',
-          });
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: res.message,
-            showConfirmButton: false,
-            timer: 1500,
-          });
+      if (editMode) {
+        fetch(`/api/v1/book/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            price,
+            author,
+            category,
+            imageUrl,
+            description,
+            id
+          }),
         })
-        .catch((err) => console.log(err));
+          .then((data) => data.json())
+          .then((res) => {
+            console.log(res);
+            this.setState({
+              name: '',
+              price: '',
+              author: '',
+              category: 'Arts & Photography',
+              imageUrl: '',
+              description: '',
+              displayModalAdd: false,
+              errorAddBook: '',
+              editMode: false
+            });
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: res.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((err) => console.log(err));
+      } else {
+        fetch('/api/v1/book', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            price,
+            author,
+            category,
+            imageUrl,
+            description,
+          }),
+        })
+          .then((data) => data.json())
+          .then((res) => {
+            console.log(res);
+            this.setState({
+              name: '',
+              price: '',
+              author: '',
+              category: 'Arts & Photography',
+              imageUrl: '',
+              description: '',
+              displayModalAdd: false,
+              errorAddBook: '',
+            });
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: res.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((err) => console.log(err));
+      }
     }
   };
 
