@@ -95,3 +95,13 @@
   margin-bottom: 1rem;
   font-weight: 600;
 }
+
+.related-books .books{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.related-books .books .single-related{
+  max-width: 18%;
+}

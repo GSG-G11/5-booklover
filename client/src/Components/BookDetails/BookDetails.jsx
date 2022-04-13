@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import './BookDetails.css';
 import { Link } from "react-router-dom";
+import RelatedItem from '../RelatedItem/RelatedItem';
 
 class BookDetails extends Component {
-state={
- book:[],
- err:''
-}
+  state = {
+    book: [],
+    err: '',
+  };
 
-componentDidMount(){
-  fetch(`/api/v1/book/${this.props.id}`).then(res=>{
-    if(res.status===200){
-      return res.json();
-    }
-  }).then(data=>this.setState({book:data.data})).catch(err=>console.log(err))
-}
-  render(){
-    const {book:{id, author,description,imageurl,name,price}} = this.state
-    const { addToCart, isLogin } = this.props;
+  componentDidMount() {
+    fetch(`/api/v1/book/${this.props.id}`)
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        }
+      })
+      .then((data) => this.setState({ book: data.data }))
+      .catch((err) => console.log(err));
+  }
+  render() {
+    const {
+      book: { id, author, description, imageurl, name, price, category },
+    } = this.state;
+    const { addToCart, isLogin, books } = this.props;
+    const relatedBooks = books.filter(b => b.category === category && b.id !== id)
+    console.log(relatedBooks);
     return (
       <div className='container'>
         <div className='wrapper'>
@@ -75,15 +83,27 @@ componentDidMount(){
             </div>
           </div>
         </div>
-        <section className="related-books">
-          <h3 className="sec-title">Related Items</h3>
-        </section>
+        {relatedBooks.length ? (
+          <section className='related-books'>
+            <h3 className='sec-title'>Related Items</h3>
+            <div className='books'>
+              {relatedBooks.map((book) => (
+                <div className='single-related' key={book.id}>
+                  <RelatedItem
+                    imageUrl={book.imageurl}
+                    id={book.id}
+                    name={book.name}
+                    category={book.category}
+                    author={book.author}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </div>
     );
   }
-
-
-
 };
 
 export default BookDetails;
