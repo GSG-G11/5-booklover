@@ -1,7 +1,11 @@
 import React from 'react'
 import './Summary.css'
 
-const Summary = () => {
+const Summary = ({cart}) => {
+  const prices = cart.map(book => book.price * book.quantity);
+  const subtotal = prices.reduce((acc, crr) => acc + crr, 0)
+  const tax = 1.05;
+  
   return (
     <div className='summary'>
       <div className='shopping-summary'>
@@ -16,16 +20,16 @@ const Summary = () => {
       <div className='buy'>
         <div className='subtotal'>
           <span>Subtotal</span>
-          <span>$80</span>
+          <span>${subtotal}</span>
         </div>
         <div className='tax'>
           <span>Tax</span>
-          <span>$80</span>
+          <span>% {tax}</span>
         </div>
         <hr />
         <div className='total'>
           <span>Total</span>
-          <span>$80</span>
+          <span>${subtotal * tax}</span>
         </div>
         <button className='checkout-btn'>CHECKOUT</button>
         <span className='confirm'>Confirm Shopping</span>
