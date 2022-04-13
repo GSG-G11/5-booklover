@@ -15,7 +15,7 @@ const Cart = (props) => {
         decrementQuantity={decrementQuantity}
       />
       <div className="wrap">
-        <Link to="/" className="continue-shop">
+        <Link to="/books" className="continue-shop">
           Continue Shop
         </Link>
       </div>

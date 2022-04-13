@@ -3,10 +3,12 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Books from "./Pages/Books";
 import Carts from "./Pages/Carts";
 import NotFound from "./Pages/NotFound";
-import "./App.css";
-import "remixicon/fonts/remixicon.css";
-import SingleBook from "./Pages/SingleBook";
-import Swal from "sweetalert2";
+import SingleBook from './Pages/SingleBook';
+import Home from './Pages/Home';
+
+import './App.css';
+import 'remixicon/fonts/remixicon.css';
+import Swal from 'sweetalert2';
 
 const seller = localStorage.getItem('nameSeller');
 class App extends Component {
@@ -147,7 +149,7 @@ class App extends Component {
             category,
             imageUrl,
             description,
-            id
+            id,
           }),
         })
           .then((data) => data.json())
@@ -162,7 +164,7 @@ class App extends Component {
               description: '',
               displayModalAdd: false,
               errorAddBook: '',
-              editMode: false
+              editMode: false,
             });
             Swal.fire({
               position: 'top-end',
@@ -365,7 +367,7 @@ class App extends Component {
             )}
           />
           <Route
-            path='/'
+            path='/books'
             render={(props) => (
               <Books
                 isBooksPage={isBooksPage}
@@ -398,6 +400,25 @@ class App extends Component {
                 editMode={editMode}
                 editBook={this.editBook}
                 cart={cart}
+              />
+            )}
+          />
+          <Route
+            path='/'
+            render={(props) => (
+              <Home
+              isBooksPage={!isBooksPage}
+              isCartPage={isCartPage}
+              cart={cart}
+              isLogin={isLogin}
+              nameSeller={nameSeller}
+              displayModal={displayModal}
+              passwordSeller={passwordSeller}
+              handleLoginSeller={this.handleLoginSeller}
+              errorLogin={errorLogin}
+              handleChange={this.handleChange}
+              handleLogin={this.handleLogin}
+              handleLogout={this.handleLogout}
               />
             )}
             exact
