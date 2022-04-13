@@ -79,8 +79,6 @@ componentDidMount(){
     );
   }
 
-
-
 };
 
 export default BookDetails;
