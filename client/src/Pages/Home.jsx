@@ -5,6 +5,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import Subscribe from '../Components/Subscribe/Subscribe';
 import Trending from '../Components/Trending/Trending';
 import Features from "../Components/Features/Features";
+import InfoNumbers from '../Components/InfoNumbers/InfoNumbers';
 
 const Home = ({
   isBooksPage,
@@ -44,6 +45,7 @@ const Home = ({
         errorLogin={errorLogin}
       />
       <Trending books={books} />
+      <InfoNumbers/>
       <Features/>
       <Subscribe />
       <Footer />
