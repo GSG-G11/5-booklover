@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://gsg-clevr.herokuapp.com/">
-    <img src="http://localhost:3000/static/media/logo.117aa5ef9b86ab015e4f59532769266b.svg" alt="Logo" width="60" height="50">
+    <img src="./client/public/logo.svg" alt="Logo" width="60" height="50">
   </a>
   <h3>Clevr</h3>
 </div>
