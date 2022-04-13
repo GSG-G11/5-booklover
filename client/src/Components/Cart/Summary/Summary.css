@@ -2,7 +2,7 @@
     border-radius: 5px;
     background-color: #F0E4F4;
     padding: 3em 8em;
-    margin-top: 3em;
+    margin: 3em 0;
     display: flex;
     justify-content: space-between;
     background: #F0E4F4 url('./background.png') no-repeat ;

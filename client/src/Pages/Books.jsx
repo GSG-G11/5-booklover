@@ -55,7 +55,13 @@ class Books extends Component {
               timer: 1500
             })
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            });
+          });
       }
     })
   }
