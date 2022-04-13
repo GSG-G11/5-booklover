@@ -87,7 +87,7 @@ class BookDetails extends Component {
           <section className='related-books'>
             <h3 className='sec-title'>Related Items</h3>
             <div className='books'>
-              {relatedBooks.map((book) => (
+              {relatedBooks.splice(0, 5).map((book) => (
                 <div className='single-related' key={book.id}>
                   <RelatedItem
                     imageUrl={book.imageurl}

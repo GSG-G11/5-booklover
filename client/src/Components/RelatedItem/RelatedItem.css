@@ -1,3 +1,25 @@
 .related-item .item-image{
     height: 348px;
+    margin-bottom: 0.7rem;
+}
+
+.related-item .related-info{
+    text-align: center;
+}
+
+.related-info .category{
+    font-size: 1rem;
+    color: #8d28ad;
+    margin-bottom: 0.5rem;
+}
+
+.related-info .name{
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.related-info .author{
+    font-size: 0.9rem;
+    color: #00000080;
+    font-weight: 500;
 }
