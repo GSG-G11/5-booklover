@@ -3,6 +3,7 @@ import Footer from '../Components/Footer/Footer';
 import Login from '../Components/Login/Login';
 import Navbar from '../Components/Navbar/Navbar';
 import Subscribe from '../Components/Subscribe/Subscribe';
+import Banner from '../Components/Banner/Banner';
 
 const Home = ({
   isBooksPage,
@@ -40,6 +41,7 @@ const Home = ({
         handleLoginSeller={handleLoginSeller}
         errorLogin={errorLogin}
       />
+      <Banner />
       <Subscribe />
       <Footer />
     </div>
