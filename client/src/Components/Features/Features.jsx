@@ -1,9 +1,9 @@
 import React from "react";
 import FeatureCard from "./FeatureCard";
-import time from './time.png';
-import guarantee from './guarantee.png';
-import payment from './payment.png';
-import quality from './quality.png';
+import time from "./time.png";
+import guarantee from "./guarantee.png";
+import payment from "./payment.png";
+import quality from "./quality.png";
 
 import "./Features.css";
 
@@ -35,10 +35,12 @@ const features = [
 ];
 const Features = () => {
   return (
-    <div className="container features">
-    {features.map((feature,index)=>{
-      return <FeatureCard  key={index} feature={feature} />
-    })}
+    <div className="features">
+      <div className="container ">
+        {features.map((feature, index) => {
+          return <FeatureCard key={index} feature={feature} />;
+        })}
+      </div>
     </div>
   );
 };
