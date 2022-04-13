@@ -419,6 +419,7 @@ class App extends Component {
               handleChange={this.handleChange}
               handleLogin={this.handleLogin}
               handleLogout={this.handleLogout}
+              books={books}
               />
             )}
             exact
