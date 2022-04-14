@@ -5,7 +5,6 @@ import './Trending.css';
 
 const Trending = ({ books }) => {
   const trending = books.slice(0, 7);
-  console.log(books);
   return (
     <section className='trending-sec'>
       <div className='container'>

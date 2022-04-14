@@ -91,7 +91,13 @@ class App extends Component {
         }
       })
       .then((data) => this.setState({ books: data.data }))
-      .catch((err) => this.setState({ err: err }));
+      .catch((err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      });
   };
 
   editBook = (
@@ -99,7 +105,6 @@ class App extends Component {
     { name, description, price, category, author, imageUrl, id }
   ) => {
     e.preventDefault();
-    // console.log({name, description, price, category, author, imageUrl, id});
     this.handleDisplayAddForm();
     this.setState((prevState) => {
       return {
@@ -154,7 +159,6 @@ class App extends Component {
         })
           .then((data) => data.json())
           .then((res) => {
-            console.log(res);
             this.setState({
               name: '',
               price: '',
@@ -174,7 +178,13 @@ class App extends Component {
               timer: 1500,
             });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            });
+          });
       } else {
         fetch('/api/v1/book', {
           method: 'POST',
@@ -192,7 +202,6 @@ class App extends Component {
         })
           .then((data) => data.json())
           .then((res) => {
-            console.log(res);
             this.setState({
               name: '',
               price: '',
@@ -211,7 +220,13 @@ class App extends Component {
               timer: 1500,
             });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            });
+          });
       }
     }
   };

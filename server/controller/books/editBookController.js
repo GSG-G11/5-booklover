@@ -22,7 +22,6 @@ const editBookController = (req, res, next) => {
     }))
     .then((data) => {
       if (data.rowCount) {
-        console.log(data.rows[0]);
         res.json({ status: 201, message: 'Edit Book Successfully' });
       } else {
         throw castmaizeError({ status: 500, message: 'serverError' });

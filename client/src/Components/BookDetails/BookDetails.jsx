@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './BookDetails.css';
 import { Link } from "react-router-dom";
 import RelatedItem from '../RelatedItem/RelatedItem';
+import Swal from 'sweetalert2';
 
 class BookDetails extends Component {
   state = {
@@ -17,7 +18,13 @@ class BookDetails extends Component {
         }
       })
       .then((data) => this.setState({ book: data.data }))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      });
   }
 
   componentDidMount() {
