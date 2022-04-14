@@ -11,7 +11,7 @@ const categories = [
   'All Genres',
   'Arts & Photography',
   'Biographies & Memory',
-  'Children’s Book',
+  'Childrens Book',
   'Cookbook & Food',
   'History',
   'Literature & Fiction',
